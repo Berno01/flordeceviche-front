@@ -1,14 +1,10 @@
 import {
   Component,
   OnInit,
-  OnDestroy,
   inject,
   signal,
   computed,
 } from "@angular/core";
-import { Subject } from "rxjs";
-import { takeUntil } from "rxjs/operators";
-import { VentasSocketService } from "../../core/services/ventas-socket.service";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { Router, RouterLink } from "@angular/router";
@@ -383,7 +379,6 @@ import {
                     [class.bg-amber-50]="
                       venta.is_updated && venta.estado !== 'CANCELADA'
                     "
-                    [class.venta-bot]="ventasBotHighlight().has(venta.id_venta)"
                   >
                     <!-- ID Venta -->
                     <td class="py-4 px-4 text-center">
@@ -723,7 +718,6 @@ import {
                 'bg-amber-50/40':
                   venta.is_updated && venta.estado !== 'CANCELADA',
               }"
-              [class.venta-bot]="ventasBotHighlight().has(venta.id_venta)"
             >
               <!-- Card Top: Date & Status -->
               <div class="flex justify-between items-start mb-4">
@@ -1882,28 +1876,15 @@ import {
       :host {
         font-family: "Work Sans", sans-serif;
       }
-
-      .venta-bot {
-        animation: bot-highlight 1s ease-in-out infinite alternate;
-      }
-      @keyframes bot-highlight {
-        from {
-          background-color: #ffffff;
-        }
-        to {
-          background-color: #d2b48c33;
-        }
-      }
     `,
   ],
 })
-export class VentasComponent implements OnInit, OnDestroy {
+export class VentasComponent implements OnInit {
   private ventaService = inject(VentaService);
   private abastecimientoService = inject(AbastecimientoService);
   private authService = inject(AuthService);
   private sucursalService = inject(SucursalService);
   private router = inject(Router);
-  private socketService = inject(VentasSocketService);
 
   ventas = signal<Venta[]>([]);
   sucursales = signal<Sucursal[]>([]);
@@ -1949,9 +1930,6 @@ export class VentasComponent implements OnInit, OnDestroy {
     return this.selectedSucursal() ?? this.userSucursal ?? 0;
   });
 
-  ventasBotHighlight = signal<Set<number>>(new Set());
-  private destroy$ = new Subject<void>();
-
   userSucursal: number | null = null;
   userRol: number | null = null;
 
@@ -1972,33 +1950,6 @@ export class VentasComponent implements OnInit, OnDestroy {
     this.loadSucursales();
     this.ventaService.loadIngredientesCache(); // Cargar ingredientes al inicio
     this.loadVentas();
-
-    // Socket: escuchar nueva_venta del bot (WhatsApp)
-    this.socketService.nuevaVenta$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((payload) => {
-        if (payload.origen === "bot") {
-          const id = payload.id_venta;
-          // Reproducir alerta
-          new Audio("assets/sounds/alert.wav").play().catch(() => {});
-          // Marcar para highlight (5s) — la fila se activa en cuanto loadVentas la renderiza
-          this.ventasBotHighlight.update((s) => new Set([...s, id]));
-          setTimeout(() => {
-            this.ventasBotHighlight.update((s) => {
-              const n = new Set(s);
-              n.delete(id);
-              return n;
-            });
-          }, 5000);
-          // Refrescar la tabla desde la DB (la venta llega con estado PENDIENTE real)
-          this.loadVentas();
-        }
-      });
-  }
-
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
   }
 
   private loadSucursales() {
