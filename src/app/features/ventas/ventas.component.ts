@@ -30,15 +30,15 @@ import {
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink],
   template: `
-    <div class="min-h-screen bg-slate-50 pb-12">
+    <div class="min-h-screen bg-[#3498db] pb-12">
       <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <!-- Header Section -->
         <div
           class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6"
         >
           <div class="flex flex-col gap-1">
-            <h2 class="text-3xl font-extrabold text-black">Ventas Diarias</h2>
-            <p class="text-slate-600 text-base font-medium">
+            <h2 class="text-3xl font-extrabold text-red-50">Ventas Diarias</h2>
+            <p class="text-red-100 text-base font-medium">
               Resumen de transacciones del día
             </p>
           </div>
@@ -72,7 +72,7 @@ import {
                 [(ngModel)]="selectedSucursal"
                 (change)="onFilterChange()"
                 [disabled]="!isAdmin()"
-                class="form-select w-full pl-10 pr-8 py-3 bg-white border border-slate-300 rounded-lg text-sm font-semibold focus:border-[#3498db] focus:ring-[#3498db] shadow-sm text-black cursor-pointer disabled:bg-gray-100 disabled:cursor-not-allowed"
+                class="form-select w-full pl-10 pr-8 py-3 bg-red-50 border border-slate-300 rounded-lg text-sm font-semibold focus:border-[#3498db] focus:ring-[#3498db] shadow-sm text-black cursor-pointer disabled:bg-gray-100 disabled:cursor-not-allowed"
               >
                 <option [ngValue]="null">Todas las Sucursales</option>
                 <option
@@ -109,7 +109,7 @@ import {
                 [(ngModel)]="fechaInicio"
                 (change)="onFilterChange()"
                 [placeholder]="isRangeMode() ? 'Fecha Inicio' : 'Fecha'"
-                class="form-input w-full pl-10 pr-3 py-3 bg-white border border-slate-300 rounded-lg text-sm font-semibold focus:border-[#3498db] focus:ring-[#3498db] shadow-sm text-black cursor-pointer"
+                class="form-input w-full pl-10 pr-3 py-3 bg-red-50 border border-slate-300 rounded-lg text-sm font-semibold focus:border-[#3498db] focus:ring-[#3498db] shadow-sm text-black cursor-pointer"
               />
             </div>
 
@@ -141,7 +141,7 @@ import {
                 [(ngModel)]="fechaFin"
                 (change)="onFilterChange()"
                 placeholder="Fecha Fin"
-                class="form-input w-full pl-10 pr-3 py-3 bg-white border border-slate-300 rounded-lg text-sm font-semibold focus:border-[#3498db] focus:ring-[#3498db] shadow-sm text-black cursor-pointer"
+                class="form-input w-full pl-10 pr-3 py-3 bg-red-50 border border-slate-300 rounded-lg text-sm font-semibold focus:border-[#3498db] focus:ring-[#3498db] shadow-sm text-black cursor-pointer"
               />
             </div>
 
@@ -150,7 +150,7 @@ import {
               (click)="toggleRangeMode()"
               [class.bg-[#3498db]]="isRangeMode()"
               [class.bg-slate-200]="!isRangeMode()"
-              [class.text-white]="isRangeMode()"
+              [class.text-red-50]="isRangeMode()"
               [class.text-slate-700]="!isRangeMode()"
               class="hover:opacity-80 font-bold py-3 px-4 rounded-lg shadow-sm flex items-center justify-center gap-2 transition-all transform active:scale-95 text-sm"
               [title]="
@@ -178,7 +178,7 @@ import {
             <button
               (click)="openAbastecimientoModal()"
               [disabled]="currentSucursalId() === 0"
-              class="bg-white border border-slate-300 hover:border-[#3498db] hover:bg-slate-50 text-slate-700 font-bold py-3 px-4 rounded-lg shadow-sm flex items-center justify-center gap-2 transition-all active:scale-95 text-sm disabled:opacity-40 disabled:cursor-not-allowed"
+              class="bg-red-50 border border-slate-300 hover:border-[#3498db] hover:bg-slate-50 text-slate-700 font-bold py-3 px-4 rounded-lg shadow-sm flex items-center justify-center gap-2 transition-all active:scale-95 text-sm disabled:opacity-40 disabled:cursor-not-allowed"
               [title]="
                 currentSucursalId() === 0
                   ? 'Selecciona una sucursal primero'
@@ -247,7 +247,7 @@ import {
             <button
               (click)="openSaldoModal()"
               [disabled]="currentSucursalId() === 0"
-              class="bg-white border border-slate-300 hover:border-[#3498db] hover:bg-slate-50 text-slate-700 font-bold py-3 px-4 rounded-lg shadow-sm flex items-center justify-center gap-2 transition-all active:scale-95 text-sm disabled:opacity-40 disabled:cursor-not-allowed"
+              class="bg-red-50 border border-slate-300 hover:border-[#3498db] hover:bg-slate-50 text-slate-700 font-bold py-3 px-4 rounded-lg shadow-sm flex items-center justify-center gap-2 transition-all active:scale-95 text-sm disabled:opacity-40 disabled:cursor-not-allowed"
               [title]="
                 currentSucursalId() === 0
                   ? 'Selecciona una sucursal primero'
@@ -274,7 +274,7 @@ import {
             <!-- Nueva Venta Button -->
             <button
               routerLink="/ventas/nueva"
-              class="bg-[#3498db] hover:bg-[#2ecc71] text-white font-extrabold py-3 px-6 rounded-lg shadow-md shadow-pink-200 flex items-center justify-center gap-2 transition-all transform active:scale-95 flex-1 md:flex-none text-sm"
+              class="bg-[#991b1b] hover:bg-[#c0392b] text-red-50 font-extrabold py-3 px-6 rounded-lg shadow-md shadow-red-950/40 flex items-center justify-center gap-2 transition-all transform active:scale-95 flex-1 md:flex-none text-sm"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -295,69 +295,69 @@ import {
 
         <!-- Desktop View (Table) -->
         <div
-          class="hidden lg:flex flex-1 bg-white rounded-xl shadow-md border border-slate-200 flex-col overflow-hidden"
+          class="hidden lg:flex flex-1 bg-[#7f1d1d] rounded-xl shadow-md border border-red-700 flex-col overflow-hidden"
         >
           <!-- Table -->
           <div class="flex-1 overflow-x-auto">
             <table class="w-full text-left border-collapse">
               <thead>
-                <tr class="border-b border-slate-200 bg-slate-100">
+                <tr class="border-b border-red-700 bg-[#991b1b]">
                   <th
-                    class="py-5 px-4 text-sm font-bold uppercase tracking-wider text-black whitespace-nowrap w-16 text-center"
+                    class="py-5 px-4 text-sm font-bold uppercase tracking-wider text-red-50 whitespace-nowrap w-16 text-center"
                   >
                     #
                   </th>
                   <th
-                    class="py-5 px-6 text-sm font-bold uppercase tracking-wider text-black whitespace-nowrap"
+                    class="py-5 px-6 text-sm font-bold uppercase tracking-wider text-red-50 whitespace-nowrap"
                   >
                     Estado
                   </th>
                   <th
-                    class="py-5 px-6 text-sm font-bold uppercase tracking-wider text-black whitespace-nowrap w-32"
+                    class="py-5 px-6 text-sm font-bold uppercase tracking-wider text-red-50 whitespace-nowrap w-32"
                   >
                     Fecha/Hora
                   </th>
                   <th
-                    class="py-5 px-6 text-sm font-bold uppercase tracking-wider text-black whitespace-nowrap"
+                    class="py-5 px-6 text-sm font-bold uppercase tracking-wider text-red-50 whitespace-nowrap"
                   >
                     Sucursal
                   </th>
                   <th
-                    class="py-5 px-6 text-sm font-bold uppercase tracking-wider text-black whitespace-nowrap"
+                    class="py-5 px-6 text-sm font-bold uppercase tracking-wider text-red-50 whitespace-nowrap"
                   >
                     Usuario
                   </th>
                   <th
-                    class="py-5 px-6 text-sm font-bold uppercase tracking-wider text-black text-right w-32"
+                    class="py-5 px-6 text-sm font-bold uppercase tracking-wider text-red-50 text-right w-32"
                   >
                     Efectivo
                   </th>
                   <th
-                    class="py-5 px-6 text-sm font-bold uppercase tracking-wider text-black text-right w-32"
+                    class="py-5 px-6 text-sm font-bold uppercase tracking-wider text-red-50 text-right w-32"
                   >
                     QR
                   </th>
                   <th
-                    class="py-5 px-6 text-sm font-bold uppercase tracking-wider text-black text-right w-32"
+                    class="py-5 px-6 text-sm font-bold uppercase tracking-wider text-red-50 text-right w-32"
                   >
                     Total
                   </th>
                   <th
-                    class="py-5 px-6 text-sm font-bold uppercase tracking-wider text-black text-center w-28"
+                    class="py-5 px-6 text-sm font-bold uppercase tracking-wider text-red-50 text-center w-28"
                   >
                     Acciones
                   </th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-slate-200">
+              <tbody class="divide-y divide-red-700">
                 <!-- Loading State -->
                 <tr *ngIf="isLoading()">
                   <td colspan="9" class="py-12 text-center">
                     <div class="flex flex-col items-center gap-3">
                       <div
-                        class="h-12 w-12 border-4 border-pink-200 border-t-pink-500 rounded-full animate-spin"
+                        class="h-12 w-12 border-4 border-red-300 border-t-red-50 rounded-full animate-spin"
                       ></div>
-                      <p class="text-lg font-bold text-slate-600">
+                      <p class="text-lg font-bold text-red-100">
                         Cargando ventas...
                       </p>
                     </div>
@@ -368,21 +368,21 @@ import {
                 <ng-container *ngIf="!isLoading()">
                   <tr
                     *ngFor="let venta of ventas()"
-                    class="hover:bg-slate-50/50 transition-colors group"
+                    class="bg-[#8f2424] hover:bg-[#a52a2a] transition-colors group"
                     [class.opacity-60]="venta.estado === 'CANCELADA'"
-                    [class.bg-amber-50]="
+                    [class.bg-red-700]="
                       venta.is_updated && venta.estado !== 'CANCELADA'
                     "
                   >
                     <!-- ID Venta -->
                     <td class="py-4 px-4 text-center">
                       <span
-                        class="inline-block px-2 py-0.5 bg-slate-100 text-slate-500 text-xs font-black rounded-md"
+                        class="inline-block px-2 py-0.5 bg-red-900 text-red-100 text-xs font-black rounded-md"
                         >#{{ venta.id_venta }}</span
                       >
                       <span
                         *ngIf="venta.is_updated"
-                        class="inline-block mt-1 px-2 py-0.5 bg-amber-100 text-amber-700 text-[10px] font-black rounded-md"
+                        class="inline-block mt-1 px-2 py-0.5 bg-red-700 text-red-100 text-[10px] font-black rounded-md"
                         >EDITADA</span
                       >
                     </td>
@@ -398,27 +398,27 @@ import {
                     </td>
 
                     <!-- Fecha/Hora -->
-                    <td class="py-4 px-6 text-base text-black font-bold">
+                    <td class="py-4 px-6 text-base text-red-50 font-bold">
                       {{ formatDateTime(venta.fecha) }}
                     </td>
 
                     <!-- Sucursal -->
                     <td
-                      class="py-4 px-6 text-base text-slate-800 font-semibold"
+                      class="py-4 px-6 text-base text-red-100 font-semibold"
                     >
                       {{ getNombreSucursal(venta.id_sucursal) }}
                     </td>
 
                     <!-- Usuario -->
-                    <td class="py-4 px-6 text-base text-slate-700 font-medium">
+                    <td class="py-4 px-6 text-base text-red-200 font-medium">
                       {{ venta.username }}
                     </td>
 
                     <!-- Efectivo -->
                     <td
                       class="py-4 px-6 text-base font-bold text-right"
-                      [class.text-black]="venta.estado !== 'CANCELADA'"
-                      [class.text-slate-400]="venta.estado === 'CANCELADA'"
+                      [class.text-red-50]="venta.estado !== 'CANCELADA'"
+                      [class.text-red-300]="venta.estado === 'CANCELADA'"
                       [class.line-through]="venta.estado === 'CANCELADA'"
                     >
                       {{
@@ -431,8 +431,8 @@ import {
                     <!-- QR -->
                     <td
                       class="py-4 px-6 text-base font-bold text-right"
-                      [class.text-black]="venta.estado !== 'CANCELADA'"
-                      [class.text-slate-400]="venta.estado === 'CANCELADA'"
+                      [class.text-red-50]="venta.estado !== 'CANCELADA'"
+                      [class.text-red-300]="venta.estado === 'CANCELADA'"
                       [class.line-through]="venta.estado === 'CANCELADA'"
                     >
                       {{
@@ -445,8 +445,8 @@ import {
                     <!-- Total -->
                     <td
                       class="py-4 px-6 text-base font-extrabold text-right"
-                      [class.text-black]="venta.estado !== 'CANCELADA'"
-                      [class.text-slate-400]="venta.estado === 'CANCELADA'"
+                      [class.text-red-50]="venta.estado !== 'CANCELADA'"
+                      [class.text-red-300]="venta.estado === 'CANCELADA'"
                       [class.line-through]="venta.estado === 'CANCELADA'"
                     >
                       Bs. {{ venta.total.toFixed(2) }}
@@ -460,7 +460,7 @@ import {
                         <!-- Botón Ver Detalle -->
                         <button
                           (click)="verDetalle(venta)"
-                          class="p-1 text-slate-500 hover:text-black transition-colors"
+                          class="p-1 text-red-200 hover:text-red-50 transition-colors"
                           title="Ver detalle"
                         >
                           <svg
@@ -489,7 +489,7 @@ import {
                         <button
                           *ngIf="venta.estado === 'PENDIENTE'"
                           (click)="enviarVenta(venta)"
-                          class="p-1 text-slate-500 hover:text-blue-600 transition-colors"
+                          class="p-1 text-red-200 hover:text-red-50 transition-colors"
                           title="Marcar como enviado"
                         >
                           <svg
@@ -512,7 +512,7 @@ import {
                         <button
                           *ngIf="isAdmin() && venta.estado !== 'CANCELADA'"
                           (click)="cancelarVenta(venta)"
-                          class="p-1 text-slate-500 hover:text-orange-600 transition-colors"
+                          class="p-1 text-red-200 hover:text-red-50 transition-colors"
                           title="Cancelar venta"
                         >
                           <svg
@@ -535,7 +535,7 @@ import {
                         <button
                           *ngIf="canEditVentas()"
                           [routerLink]="['/ventas/editar', venta.id_venta]"
-                          class="p-1 text-slate-500 hover:text-amber-600 transition-colors"
+                          class="p-1 text-red-200 hover:text-red-50 transition-colors"
                           title="Editar venta"
                         >
                           <svg
@@ -585,10 +585,10 @@ import {
                 <tr *ngIf="!isLoading() && ventas().length === 0">
                   <td colspan="8" class="py-12 text-center">
                     <div class="flex flex-col items-center gap-3">
-                      <div class="bg-slate-100 p-4 rounded-full">
+                      <div class="bg-red-900 p-4 rounded-full">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          class="h-12 w-12 text-slate-400"
+                          class="h-12 w-12 text-red-200"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -601,10 +601,10 @@ import {
                           />
                         </svg>
                       </div>
-                      <p class="text-lg font-bold text-slate-600">
+                      <p class="text-lg font-bold text-red-100">
                         No hay ventas para mostrar
                       </p>
-                      <p class="text-sm text-slate-500">
+                      <p class="text-sm text-red-200">
                         Intenta cambiar los filtros o crea una nueva venta
                       </p>
                     </div>
@@ -615,7 +615,7 @@ import {
           </div>
 
           <!-- Footer Summary -->
-          <div class="bg-[#3498db]/20 border-t border-[#3498db]/30">
+          <div class="bg-[#991b1b] border-t border-red-700">
             <table class="w-full">
               <tbody>
                 <tr>
@@ -629,11 +629,11 @@ import {
                   <td class="py-5 px-6 text-right w-32">
                     <div class="flex flex-col items-end">
                       <span
-                        class="text-xs uppercase tracking-wide text-slate-700 font-bold mb-1"
+                        class="text-xs uppercase tracking-wide text-red-200 font-bold mb-1"
                       >
                         Total Efectivo
                       </span>
-                      <span class="text-xl font-black text-black">
+                      <span class="text-xl font-black text-red-50">
                         Bs. {{ totales().efectivo.toFixed(2) }}
                       </span>
                     </div>
@@ -643,11 +643,11 @@ import {
                   <td class="py-5 px-6 text-right w-32">
                     <div class="flex flex-col items-end">
                       <span
-                        class="text-xs uppercase tracking-wide text-slate-700 font-bold mb-1"
+                        class="text-xs uppercase tracking-wide text-red-200 font-bold mb-1"
                       >
                         Total QR
                       </span>
-                      <span class="text-xl font-black text-black">
+                      <span class="text-xl font-black text-red-50">
                         Bs. {{ totales().qr.toFixed(2) }}
                       </span>
                     </div>
@@ -657,15 +657,15 @@ import {
                   <td class="py-5 px-6 text-right w-32">
                     <div class="flex flex-col items-end relative">
                       <div
-                        class="absolute -bottom-2 right-0 w-32 h-1.5 bg-[#3498db] rounded-full opacity-60"
+                        class="absolute -bottom-2 right-0 w-32 h-1.5 bg-red-400 rounded-full opacity-60"
                       ></div>
                       <span
-                        class="text-xs uppercase tracking-wide text-black font-black mb-1"
+                        class="text-xs uppercase tracking-wide text-red-100 font-black mb-1"
                       >
                         Venta Total
                       </span>
                       <span
-                        class="text-3xl font-black text-black tracking-tight"
+                        class="text-3xl font-black text-red-50 tracking-tight"
                       >
                         Bs. {{ totales().total.toFixed(2) }}
                       </span>
@@ -685,7 +685,7 @@ import {
           <!-- Loading State Mobile -->
           <div
             *ngIf="isLoading()"
-            class="flex items-center justify-center py-20 bg-white rounded-2xl border border-slate-100"
+            class="flex items-center justify-center py-20 bg-red-50 rounded-2xl border border-slate-100"
           >
             <div class="flex flex-col items-center gap-3">
               <div
@@ -702,7 +702,7 @@ import {
           >
             <div
               *ngFor="let venta of ventas()"
-              class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:border-slate-300 transition-all duration-300 p-5 flex flex-col justify-between group relative overflow-hidden"
+              class="bg-red-50 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:border-slate-300 transition-all duration-300 p-5 flex flex-col justify-between group relative overflow-hidden"
               [class.opacity-75]="venta.estado === 'CANCELADA'"
               [class.bg-slate-50]="venta.estado === 'CANCELADA'"
               [class.border-amber-300]="
@@ -970,7 +970,7 @@ import {
             <!-- Empty State -->
             <div
               *ngIf="ventas().length === 0"
-              class="col-span-full py-16 text-center bg-white rounded-3xl border border-slate-200 border-dashed"
+              class="col-span-full py-16 text-center bg-red-50 rounded-3xl border border-slate-200 border-dashed"
             >
               <div
                 class="inline-flex items-center justify-center w-20 h-20 bg-slate-50 rounded-full mb-4"
@@ -1001,7 +1001,7 @@ import {
 
           <!-- Modern Summary Footer -->
           <div
-            class="bg-slate-900 rounded-2xl shadow-xl overflow-hidden text-white mt-auto"
+            class="bg-slate-900 rounded-2xl shadow-xl overflow-hidden text-red-50 mt-auto"
           >
             <div
               class="p-4 sm:p-6 grid grid-cols-1 md:grid-cols-4 gap-6 items-center"
@@ -1019,7 +1019,7 @@ import {
                   class="flex items-center justify-center md:justify-start gap-2"
                 >
                   <span
-                    class="inline-block w-2 h-2 rounded-full bg-green-400"
+                    class="inline-block w-2 h-2 rounded-full bg-red-400"
                   ></span>
                   <span class="text-sm font-semibold text-slate-200"
                     >{{ ventas().length }} Transacciones</span
@@ -1039,7 +1039,7 @@ import {
                     Efectivo Total
                   </p>
                   <p
-                    class="text-lg sm:text-2xl font-bold text-green-400 truncate"
+                    class="text-lg sm:text-2xl font-bold text-red-300 truncate"
                   >
                     Bs {{ totales().efectivo.toFixed(2) }}
                   </p>
@@ -1064,15 +1064,15 @@ import {
                   class="bg-pink-600 rounded-xl p-3 border border-pink-500 shadow-lg shadow-pink-900/50 relative overflow-hidden group"
                 >
                   <div
-                    class="absolute -right-4 -top-4 w-12 h-12 bg-white/20 rounded-full group-hover:scale-150 transition-transform duration-500"
+                    class="absolute -right-4 -top-4 w-12 h-12 bg-red-50/20 rounded-full group-hover:scale-150 transition-transform duration-500"
                   ></div>
                   <p
-                    class="text-[10px] text-white/80 font-bold uppercase mb-1 relative z-10"
+                    class="text-[10px] text-red-100 font-bold uppercase mb-1 relative z-10"
                   >
                     Venta Total
                   </p>
                   <p
-                    class="text-lg sm:text-2xl font-black text-white truncate relative z-10"
+                    class="text-lg sm:text-2xl font-black text-red-50 truncate relative z-10"
                   >
                     Bs {{ totales().total.toFixed(2) }}
                   </p>
@@ -1092,11 +1092,11 @@ import {
     >
       <div
         (click)="$event.stopPropagation()"
-        class="bg-white rounded-2xl w-full max-w-2xl shadow-2xl max-h-[90vh] flex flex-col"
+        class="bg-red-50 rounded-2xl w-full max-w-2xl shadow-2xl max-h-[90vh] flex flex-col"
       >
         <!-- Header -->
         <div
-          class="sticky top-0 bg-white border-b border-slate-200 p-5 flex items-center justify-between rounded-t-2xl shrink-0"
+          class="sticky top-0 bg-red-50 border-b border-slate-200 p-5 flex items-center justify-between rounded-t-2xl shrink-0"
         >
           <div>
             <h2 class="text-xl font-extrabold text-black">
@@ -1169,7 +1169,7 @@ import {
                 <div class="flex flex-wrap gap-2">
                   <span
                     *ngFor="let d of ab.detalles"
-                    class="inline-flex items-center gap-1.5 bg-white border border-slate-200 rounded-lg px-2.5 py-1 text-xs font-bold text-slate-700"
+                    class="inline-flex items-center gap-1.5 bg-red-50 border border-slate-200 rounded-lg px-2.5 py-1 text-xs font-bold text-slate-700"
                   >
                     <span class="text-[#3498db]">&times;{{ d.cantidad }}</span>
                     {{ d.nombre_menu }}
@@ -1209,7 +1209,7 @@ import {
               >
                 <!-- Imagen -->
                 <div
-                  class="w-full h-20 rounded-lg bg-white border border-slate-100 overflow-hidden flex items-center justify-center"
+                  class="w-full h-20 rounded-lg bg-red-50 border border-slate-100 overflow-hidden flex items-center justify-center"
                 >
                   <img
                     *ngIf="item.url_foto"
@@ -1245,7 +1245,7 @@ import {
                 </div>
                 <!-- Cantidad -->
                 <div
-                  class="flex items-center bg-white rounded-lg border border-slate-200 overflow-hidden"
+                  class="flex items-center bg-red-50 rounded-lg border border-slate-200 overflow-hidden"
                 >
                   <button
                     (click)="decrementAbQty(item.id_menu)"
@@ -1262,7 +1262,7 @@ import {
                   />
                   <button
                     (click)="incrementAbQty(item.id_menu)"
-                    class="px-2.5 py-1.5 text-slate-500 hover:bg-[#3498db] hover:text-white font-bold text-base leading-none transition-colors"
+                    class="px-2.5 py-1.5 text-slate-500 hover:bg-[#3498db] hover:text-red-50 font-bold text-base leading-none transition-colors"
                   >
                     +
                   </button>
@@ -1274,7 +1274,7 @@ import {
 
         <!-- Footer -->
         <div
-          class="shrink-0 bg-white border-t border-slate-200 p-5 flex items-center justify-between rounded-b-2xl"
+          class="shrink-0 bg-red-50 border-t border-slate-200 p-5 flex items-center justify-between rounded-b-2xl"
         >
           <span class="text-sm font-bold text-slate-500">
             {{ abTotalItems() }} producto(s) seleccionado(s)
@@ -1289,11 +1289,11 @@ import {
             <button
               (click)="saveAbastecimiento()"
               [disabled]="abTotalItems() === 0 || isSavingAbastecimiento()"
-              class="px-5 py-2.5 rounded-xl bg-[#3498db] text-white font-black hover:bg-[#2ecc71] transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm flex items-center gap-2"
+              class="px-5 py-2.5 rounded-xl bg-[#3498db] text-red-50 font-black hover:bg-[#e74c3c] transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm flex items-center gap-2"
             >
               <span
                 *ngIf="isSavingAbastecimiento()"
-                class="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin"
+                class="h-4 w-4 border-2 border-red-100 border-t-transparent rounded-full animate-spin"
               ></span>
               {{
                 isSavingAbastecimiento() ? "Guardando..." : "Guardar Registro"
@@ -1312,11 +1312,11 @@ import {
     >
       <div
         (click)="$event.stopPropagation()"
-        class="bg-white rounded-2xl w-full max-w-lg shadow-2xl max-h-[90vh] flex flex-col"
+        class="bg-red-50 rounded-2xl w-full max-w-lg shadow-2xl max-h-[90vh] flex flex-col"
       >
         <!-- Header -->
         <div
-          class="sticky top-0 bg-white border-b border-slate-200 p-5 flex items-center justify-between rounded-t-2xl shrink-0"
+          class="sticky top-0 bg-red-50 border-b border-slate-200 p-5 flex items-center justify-between rounded-t-2xl shrink-0"
         >
           <div>
             <h2 class="text-xl font-extrabold text-black">Saldo del Día</h2>
@@ -1401,8 +1401,8 @@ import {
               <div class="flex justify-end">
                 <span
                   class="inline-flex items-center justify-center min-w-[2.25rem] px-2 py-0.5 rounded-lg text-sm font-black"
-                  [class.bg-green-100]="item.saldo > 0"
-                  [class.text-green-700]="item.saldo > 0"
+                  [class.bg-red-100]="item.saldo > 0"
+                  [class.text-red-700]="item.saldo > 0"
                   [class.bg-red-100]="item.saldo === 0"
                   [class.text-red-600]="item.saldo === 0"
                 >
@@ -1413,7 +1413,7 @@ import {
 
             <!-- Totals row -->
             <div
-              class="grid grid-cols-3 gap-2 items-center bg-white rounded-xl px-3 py-2.5 border border-slate-200 mt-1"
+              class="grid grid-cols-3 gap-2 items-center bg-red-50 rounded-xl px-3 py-2.5 border border-slate-200 mt-1"
             >
               <span
                 class="text-xs font-bold uppercase tracking-wider text-slate-500"
@@ -1435,7 +1435,7 @@ import {
 
         <!-- Footer -->
         <div
-          class="shrink-0 bg-white border-t border-slate-200 p-4 flex justify-end rounded-b-2xl"
+          class="shrink-0 bg-red-50 border-t border-slate-200 p-4 flex justify-end rounded-b-2xl"
         >
           <button
             (click)="closeSaldoModal()"
@@ -1455,11 +1455,11 @@ import {
     >
       <div
         (click)="$event.stopPropagation()"
-        class="bg-white rounded-2xl w-full max-w-2xl shadow-2xl max-h-[90vh] overflow-y-auto"
+        class="bg-red-50 rounded-2xl w-full max-w-2xl shadow-2xl max-h-[90vh] overflow-y-auto"
       >
         <!-- Header -->
         <div
-          class="sticky top-0 bg-white border-b border-slate-200 p-6 flex items-center justify-between rounded-t-2xl"
+          class="sticky top-0 bg-red-50 border-b border-slate-200 p-6 flex items-center justify-between rounded-t-2xl"
         >
           <div class="flex items-center gap-3">
             <h2 class="text-2xl font-extrabold text-black">Detalle de Venta</h2>
@@ -1602,7 +1602,7 @@ import {
                       class="text-sm flex items-center gap-2"
                     >
                       <div
-                        class="h-8 w-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center overflow-hidden"
+                        class="h-8 w-8 rounded-lg bg-red-50 border border-slate-200 flex items-center justify-center overflow-hidden"
                       >
                         <ng-container *ngIf="ing.url_foto; else ingPlaceholder">
                           <img
@@ -1656,7 +1656,7 @@ import {
 
         <!-- Footer Buttons -->
         <div
-          class="sticky bottom-0 bg-white border-t border-slate-200 p-6 flex gap-3 justify-end rounded-b-2xl"
+          class="sticky bottom-0 bg-red-50 border-t border-slate-200 p-6 flex gap-3 justify-end rounded-b-2xl"
         >
           <button
             (click)="closeDetalleModal()"
@@ -1667,7 +1667,7 @@ import {
           <button
             (click)="openHistoryModal()"
             [disabled]="!detalleVenta() || isLoadingHistory()"
-            class="px-6 py-3 rounded-xl bg-black text-white font-bold hover:bg-slate-800 transition-colors flex items-center gap-2"
+            class="px-6 py-3 rounded-xl bg-black text-red-50 font-bold hover:bg-slate-800 transition-colors flex items-center gap-2"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -1697,23 +1697,23 @@ import {
     >
       <div
         (click)="$event.stopPropagation()"
-        class="bg-white rounded-2xl w-full max-w-4xl shadow-2xl max-h-[90vh] overflow-y-auto"
+        class="bg-[#7f1d1d] rounded-2xl w-full max-w-4xl shadow-2xl max-h-[90vh] overflow-y-auto"
       >
         <div
-          class="sticky top-0 bg-white border-b border-slate-200 p-5 flex items-center justify-between rounded-t-2xl"
+          class="sticky top-0 bg-[#991b1b] border-b border-red-700 p-5 flex items-center justify-between rounded-t-2xl"
         >
           <div>
-            <h2 class="text-xl font-extrabold text-black">
+            <h2 class="text-xl font-extrabold text-red-50">
               Historial de Modificaciones
             </h2>
-            <p class="text-sm text-slate-500 font-medium">
+            <p class="text-sm text-red-200 font-medium">
               Venta #{{ historyData()?.id_venta }} ·
               {{ historyData()?.total_versiones || 0 }} versión(es)
             </p>
           </div>
           <button
             (click)="closeHistoryModal()"
-            class="p-2 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-100 transition-colors"
+            class="p-2 text-red-200 hover:text-red-50 rounded-lg hover:bg-red-800 transition-colors"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -1738,7 +1738,7 @@ import {
             class="flex items-center justify-center py-8"
           >
             <div
-              class="h-10 w-10 border-4 border-pink-200 border-t-[#3498db] rounded-full animate-spin"
+              class="h-10 w-10 border-4 border-red-300 border-t-red-50 rounded-full animate-spin"
             ></div>
           </div>
 
@@ -1747,7 +1747,7 @@ import {
               !isLoadingHistory() &&
               (!historyData() || historyItems().length === 0)
             "
-            class="text-slate-500 text-sm italic text-center py-6"
+            class="text-red-200 text-sm italic text-center py-6"
           >
             No hay historial disponible para esta venta.
           </p>
@@ -1760,8 +1760,8 @@ import {
               *ngFor="let item of historyItems(); let idx = index"
               class="rounded-xl border p-4"
               [ngClass]="{
-                'border-amber-200 bg-amber-50/40': item.source === 'AUDITORIA',
-                'border-green-200 bg-green-50/40': item.source === 'ACTUAL',
+                'border-red-700 bg-red-900/40': item.source === 'AUDITORIA',
+                'border-red-600 bg-red-800/60': item.source === 'ACTUAL',
               }"
             >
               <div
@@ -1769,62 +1769,62 @@ import {
               >
                 <div class="flex items-center gap-2">
                   <span
-                    class="text-xs px-2 py-1 rounded-md font-black bg-slate-900 text-white"
+                    class="text-xs px-2 py-1 rounded-md font-black bg-red-950 text-red-50"
                   >
                     V{{ item.version }}
                   </span>
                   <span
                     class="text-xs px-2 py-1 rounded-md font-black"
-                    [class.bg-amber-100]="item.source === 'AUDITORIA'"
-                    [class.text-amber-700]="item.source === 'AUDITORIA'"
-                    [class.bg-green-100]="item.source === 'ACTUAL'"
-                    [class.text-green-700]="item.source === 'ACTUAL'"
+                    [class.bg-red-700]="item.source === 'AUDITORIA'"
+                    [class.text-red-100]="item.source === 'AUDITORIA'"
+                    [class.bg-red-600]="item.source === 'ACTUAL'"
+                    [class.text-red-50]="item.source === 'ACTUAL'"
                   >
                     {{ item.source }}
                   </span>
                 </div>
-                <div class="text-xs text-slate-500 font-semibold">
+                <div class="text-xs text-red-200 font-semibold">
                   {{ formatHistoryTimestamp(item.timestamp) }}
                 </div>
               </div>
 
               <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
-                <div class="bg-white border border-slate-200 rounded-lg p-2.5">
-                  <p class="text-[10px] uppercase font-bold text-slate-500">
+                <div class="bg-red-900/50 border border-red-700 rounded-lg p-2.5">
+                  <p class="text-[10px] uppercase font-bold text-red-200">
                     Sucursal
                   </p>
-                  <p class="text-sm font-black text-slate-800">
+                  <p class="text-sm font-black text-red-50">
                     {{ getNombreSucursal(item.snapshot.venta.id_sucursal) }}
                   </p>
                 </div>
-                <div class="bg-white border border-slate-200 rounded-lg p-2.5">
-                  <p class="text-[10px] uppercase font-bold text-slate-500">
+                <div class="bg-red-900/50 border border-red-700 rounded-lg p-2.5">
+                  <p class="text-[10px] uppercase font-bold text-red-200">
                     Efectivo
                   </p>
-                  <p class="text-sm font-black text-slate-800">
+                  <p class="text-sm font-black text-red-50">
                     Bs. {{ item.snapshot.venta.monto_efectivo.toFixed(2) }}
                   </p>
                 </div>
-                <div class="bg-white border border-slate-200 rounded-lg p-2.5">
-                  <p class="text-[10px] uppercase font-bold text-slate-500">
+                <div class="bg-red-900/50 border border-red-700 rounded-lg p-2.5">
+                  <p class="text-[10px] uppercase font-bold text-red-200">
                     QR
                   </p>
-                  <p class="text-sm font-black text-slate-800">
+                  <p class="text-sm font-black text-red-50">
                     Bs. {{ item.snapshot.venta.monto_qr.toFixed(2) }}
                   </p>
                 </div>
-                <div class="bg-white border border-slate-200 rounded-lg p-2.5">
-                  <p class="text-[10px] uppercase font-bold text-slate-500">
+                <div class="bg-red-900/50 border border-red-700 rounded-lg p-2.5">
+                  <p class="text-[10px] uppercase font-bold text-red-200">
                     Total
                   </p>
-                  <p class="text-sm font-black text-slate-900">
+                  <p class="text-sm font-black text-red-50">
                     Bs. {{ item.snapshot.venta.total.toFixed(2) }}
                   </p>
                 </div>
               </div>
 
-              <div class="bg-white border border-slate-200 rounded-lg p-3">
-                <p class="text-xs uppercase font-bold text-slate-500 mb-2">
+              <div class="bg-red-900/40 border border-red-700 rounded-lg p-3">
+                <p class="text-xs uppercase font-bold text-red-200 mb-2">
                   Detalle en esta versión
                 </p>
                 <div
@@ -1838,22 +1838,22 @@ import {
                     *ngFor="let detalle of item.snapshot.detalles"
                     class="flex items-center justify-between text-sm"
                   >
-                    <span class="font-semibold text-slate-700">
+                    <span class="font-semibold text-red-100">
                       {{ getMenuName(detalle.id_menu) }} x{{ detalle.cantidad }}
                     </span>
-                    <span class="font-black text-slate-900"
+                    <span class="font-black text-red-50"
                       >Bs. {{ detalle.total.toFixed(2) }}</span
                     >
                   </div>
                 </div>
                 <ng-template #emptyHistoryDetail>
-                  <p class="text-sm text-slate-400 italic">
+                  <p class="text-sm text-red-300 italic">
                     Sin detalle registrado.
                   </p>
                 </ng-template>
               </div>
 
-              <div class="mt-2 text-[11px] text-slate-500 font-medium">
+              <div class="mt-2 text-[11px] text-red-200 font-medium">
                 Editado por: {{ item.snapshot.metadata.edited_by ?? "-" }} ·
                 {{ item.snapshot.metadata.edited_at || "Sin dato" }}
               </div>
@@ -2207,12 +2207,12 @@ export class VentasComponent implements OnInit {
 
   getEstadoBadgeClass(estado: string): string {
     const classes: Record<string, string> = {
-      ENTREGADO: "bg-green-100 text-green-800 border border-green-200", // Verde suave
-      PENDIENTE: "bg-gray-200 text-gray-700 border border-gray-300", // Gris
-      ENVIADO: "bg-[#25D366] text-white shadow-sm border-none", // WhatsApp Green
-      CANCELADA: "bg-slate-200 text-slate-700 border border-slate-300",
+      ENTREGADO: "bg-red-700 text-red-50 border border-red-500",
+      PENDIENTE: "bg-red-800 text-red-50 border border-red-600",
+      ENVIADO: "bg-[#e74c3c] text-red-50 shadow-sm border-none",
+      CANCELADA: "bg-red-900 text-red-100 border border-red-700",
     };
-    return classes[estado] || "bg-gray-100 text-gray-800";
+    return classes[estado] || "bg-red-800 text-red-50";
   }
 
   getNombreSucursal(id: number): string {

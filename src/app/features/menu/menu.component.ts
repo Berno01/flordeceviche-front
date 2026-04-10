@@ -14,19 +14,19 @@ import { SucursalService } from "../../core/services/sucursal.service";
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink],
   template: `
-    <div class="min-h-screen bg-gray-50/50 pb-12">
+    <div class="min-h-screen bg-[#7f1d1d] pb-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <!-- Header Section -->
         <div
-          class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10"
+          class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10 bg-[#8a2020] rounded-3xl p-6 border border-red-600"
         >
           <div>
             <h1
-              class="text-3xl font-extrabold text-gray-900 tracking-tight mb-1"
+              class="text-3xl font-extrabold text-red-50 tracking-tight mb-1"
             >
               Gestión de Menú
             </h1>
-            <p class="text-gray-500 font-medium">
+            <p class="text-red-100 font-medium">
               Administra productos, precios e ingredientes
             </p>
           </div>
@@ -38,7 +38,7 @@ import { SucursalService } from "../../core/services/sucursal.service";
                 class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
               >
                 <svg
-                  class="h-5 w-5 text-gray-400 group-focus-within:text-shell-pink-500 transition-colors"
+                  class="h-5 w-5 text-red-300 group-focus-within:text-red-100 transition-colors"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -54,14 +54,14 @@ import { SucursalService } from "../../core/services/sucursal.service";
               <input
                 type="text"
                 [(ngModel)]="searchQuery"
-                class="block w-full sm:w-80 pl-11 pr-4 py-3 rounded-xl border border-gray-200 bg-white leading-5 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-shell-pink-300 focus:border-shell-pink-300 sm:text-sm transition-shadow shadow-sm"
+                class="block w-full sm:w-80 pl-11 pr-4 py-3 rounded-xl border border-red-700 bg-red-900/40 text-red-50 leading-5 placeholder-red-300 focus:outline-none focus:ring-2 focus:ring-[#e74c3c] focus:border-[#e74c3c] sm:text-sm transition-shadow shadow-sm"
                 placeholder="Buscar producto..."
               />
             </div>
 
             <button
               routerLink="/menu/create"
-              class="flex items-center justify-center gap-2 bg-shell-pink-400 hover:bg-shell-pink-500 text-white font-bold py-3 px-6 rounded-xl shadow-lg shadow-shell-pink-200 transition-all hover:scale-105 active:scale-95"
+              class="flex items-center justify-center gap-2 bg-[#991b1b] hover:bg-[#c0392b] hover:text-red-50 text-red-50 font-bold py-3 px-6 rounded-xl shadow-lg shadow-red-950/40 transition-all hover:scale-105 active:scale-95"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -88,8 +88,8 @@ import { SucursalService } from "../../core/services/sucursal.service";
             *ngFor="let product of filteredProducts()"
             [ngClass]="
               product.estado
-                ? 'bg-white border-gray-100 hover:shadow-xl hover:shadow-pink-50/50'
-                : 'bg-gray-50 border-gray-200 opacity-80'
+                ? 'bg-[#8a2020] border-red-600 hover:shadow-xl hover:shadow-red-950/60'
+                : 'bg-[#5f1414] border-red-700 opacity-80'
             "
             class="rounded-xl sm:rounded-3xl border p-3 sm:p-6 transition-all duration-300 relative group overflow-hidden"
           >
@@ -100,7 +100,7 @@ import { SucursalService } from "../../core/services/sucursal.service";
                 <button
                   (click)="toggleProduct(product)"
                   *ngIf="!product.estado"
-                  class="inline-flex items-center px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md sm:rounded-lg text-[10px] sm:text-xs font-bold bg-gray-200 text-gray-500 uppercase tracking-wide border border-gray-300 hover:bg-green-100 hover:text-green-700 hover:border-green-300 transition-colors cursor-pointer"
+                  class="inline-flex items-center px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md sm:rounded-lg text-[10px] sm:text-xs font-bold bg-red-900 text-red-200 uppercase tracking-wide border border-red-700 hover:bg-red-700 hover:text-red-50 hover:border-red-500 transition-colors cursor-pointer"
                 >
                   <span class="sm:hidden">OFF</span>
                   <span class="hidden sm:inline">Inactivo (Activar)</span>
@@ -109,7 +109,7 @@ import { SucursalService } from "../../core/services/sucursal.service";
 
               <button
                 [routerLink]="['/menu/edit', product.id_menu]"
-                class="text-slate-300 hover:text-slate-600 transition-colors p-1 rounded-full hover:bg-slate-100"
+                class="text-red-300 hover:text-red-50 transition-colors p-1 rounded-full hover:bg-red-700/60"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -136,7 +136,7 @@ import { SucursalService } from "../../core/services/sucursal.service";
 
             <div class="mb-3 sm:mb-6">
               <div
-                class="w-full h-24 sm:h-32 rounded-lg sm:rounded-2xl bg-gray-100 border border-gray-100 flex items-center justify-center overflow-hidden"
+                class="w-full h-24 sm:h-32 rounded-lg sm:rounded-2xl bg-red-900/60 border border-red-700 flex items-center justify-center overflow-hidden"
               >
                 <ng-container
                   *ngIf="product.url_foto; else menuPhotoPlaceholder"
@@ -148,7 +148,7 @@ import { SucursalService } from "../../core/services/sucursal.service";
                   />
                 </ng-container>
                 <ng-template #menuPhotoPlaceholder>
-                  <div class="text-center text-gray-400">
+                  <div class="text-center text-red-200">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       class="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-2"
@@ -174,21 +174,21 @@ import { SucursalService } from "../../core/services/sucursal.service";
             <!-- Product Info -->
             <div class="mb-3 sm:mb-8">
               <h3
-                class="text-sm sm:text-xl font-extrabold text-gray-900 mb-1 sm:mb-2 line-clamp-2 leading-tight min-h-[2.5em] sm:min-h-0"
+                class="text-sm sm:text-xl font-extrabold text-red-50 mb-1 sm:mb-2 line-clamp-2 leading-tight min-h-[2.5em] sm:min-h-0"
               >
                 {{ product.nombre_menu }}
               </h3>
               <div class="flex items-baseline gap-1">
                 <span
                   [ngClass]="{
-                    'text-gray-900': product.estado,
-                    'text-gray-400': !product.estado,
+                    'text-red-50': product.estado,
+                    'text-red-300': !product.estado,
                   }"
                   class="text-xl sm:text-4xl font-extrabold transition-colors"
                 >
                   {{ product.precio_menu }}
                 </span>
-                <span class="text-xs sm:text-sm font-semibold text-gray-400"
+                <span class="text-xs sm:text-sm font-semibold text-red-300"
                   >Bs.</span
                 >
               </div>
@@ -196,9 +196,9 @@ import { SucursalService } from "../../core/services/sucursal.service";
 
             <!-- Status Footer -->
             <div
-              class="flex items-center justify-between pt-2 sm:pt-4 border-t border-gray-50"
+              class="flex items-center justify-between pt-2 sm:pt-4 border-t border-red-700/70"
             >
-              <span class="text-xs sm:text-sm font-bold text-gray-500"
+              <span class="text-xs sm:text-sm font-bold text-red-200"
                 >Estado</span
               >
 
@@ -208,7 +208,7 @@ import { SucursalService } from "../../core/services/sucursal.service";
                 class="relative inline-flex flex-shrink-0 h-5 w-9 sm:h-6 sm:w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none"
                 [ngClass]="{
                   'bg-shell-pink-400': product.estado,
-                  'bg-gray-200': !product.estado,
+                  'bg-red-700': !product.estado,
                 }"
               >
                 <span class="sr-only">Use setting</span>
@@ -218,7 +218,7 @@ import { SucursalService } from "../../core/services/sucursal.service";
                     'translate-x-5': product.estado,
                     'translate-x-0': !product.estado,
                   }"
-                  class="pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"
+                  class="pointer-events-none inline-block h-5 w-5 rounded-full bg-red-300 shadow transform ring-0 transition ease-in-out duration-200"
                 >
                 </span>
               </button>
@@ -226,8 +226,8 @@ import { SucursalService } from "../../core/services/sucursal.service";
               <span
                 class="text-sm font-bold ml-2"
                 [ngClass]="{
-                  'text-gray-900': product.estado,
-                  'text-gray-400': !product.estado,
+                  'text-red-50': product.estado,
+                  'text-red-400': !product.estado,
                 }"
               >
                 {{ product.estado ? "Activo" : "Inactivo" }}

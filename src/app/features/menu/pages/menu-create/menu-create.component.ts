@@ -40,10 +40,10 @@ interface CategoryConfig {
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink],
   template: `
-    <div class="min-h-screen bg-gray-50/50 pb-20">
+    <div class="min-h-screen bg-[#6b1616] pb-20">
       <!-- Top Bar / Header -->
       <div
-        class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-30"
+        class="bg-[#8d1f1f] shadow-sm border-b border-red-600 sticky top-0 z-30"
       >
         <div
           class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between"
@@ -51,7 +51,7 @@ interface CategoryConfig {
           <div class="flex items-center gap-2 md:gap-4">
             <a
               routerLink="/menu"
-              class="p-2 -ml-2 rounded-xl text-gray-400 hover:text-gray-900 hover:bg-gray-100 transition-all active:scale-95"
+              class="p-2 -ml-2 rounded-xl text-red-200 hover:text-red-50 hover:bg-[#7f1d1d] transition-all active:scale-95"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -70,11 +70,11 @@ interface CategoryConfig {
             </a>
             <div>
               <h1
-                class="text-lg md:text-2xl font-extrabold text-gray-900 leading-none"
+                class="text-lg md:text-2xl font-extrabold text-red-50 leading-none"
               >
                 {{ isEditMode() ? "Editar Vaso" : "Nuevo Vaso" }}
               </h1>
-              <p class="hidden md:block text-xs text-gray-500 mt-1 font-medium">
+              <p class="hidden md:block text-xs text-red-100 mt-1 font-medium">
                 Configuración de producto
               </p>
             </div>
@@ -82,7 +82,7 @@ interface CategoryConfig {
           <button
             (click)="saveAll()"
             [disabled]="isSaving()"
-            class="flex items-center gap-2 bg-pink-500 hover:bg-pink-600 text-white px-4 md:px-6 py-2 md:py-2.5 rounded-xl font-bold shadow-lg shadow-pink-200 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+            class="flex items-center gap-2 bg-[#991b1b] hover:bg-[#c0392b] hover:text-red-50 text-red-50 px-4 md:px-6 py-2 md:py-2.5 rounded-xl font-bold shadow-lg shadow-red-950/40 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <span *ngIf="isSaving()">Guardando...</span>
             <span *ngIf="!isSaving()" class="flex items-center">
@@ -110,43 +110,43 @@ interface CategoryConfig {
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         <!-- 1. Basic Info Section -->
         <section
-          class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100"
+          class="bg-[#7a1a1a] rounded-3xl p-6 shadow-sm border border-red-600"
         >
-          <h2 class="text-lg font-bold text-gray-900 mb-4">
+          <h2 class="text-lg font-bold text-red-50 mb-4">
             Información Básica
           </h2>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1"
+              <label class="block text-sm font-medium text-red-100 mb-1"
                 >Nombre del Menu</label
               >
               <input
                 type="text"
                 [(ngModel)]="menuBasicInfo.nombre_menu"
-                class="w-full rounded-xl border-gray-200 px-4 py-3 focus:outline-none focus:border-pink-500 focus:ring-4 focus:ring-pink-500/10 transition-all duration-200 bg-white shadow-sm"
+                class="w-full rounded-xl border-red-700 px-4 py-3 focus:outline-none focus:border-[#e74c3c] focus:ring-4 focus:ring-[#e74c3c]/20 transition-all duration-200 bg-red-900/40 text-red-50 placeholder-red-300 shadow-sm"
                 placeholder="Ej: Vaso Grande"
               />
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1"
+              <label class="block text-sm font-medium text-red-100 mb-1"
                 >Precio Base (Bs.)</label
               >
               <input
                 type="number"
                 [(ngModel)]="menuBasicInfo.precio_menu"
-                class="w-full rounded-xl border-gray-200 px-4 py-3 focus:outline-none focus:border-pink-500 focus:ring-4 focus:ring-pink-500/10 transition-all duration-200 bg-white shadow-sm"
+                class="w-full rounded-xl border-red-700 px-4 py-3 focus:outline-none focus:border-[#e74c3c] focus:ring-4 focus:ring-[#e74c3c]/20 transition-all duration-200 bg-red-900/40 text-red-50 placeholder-red-300 shadow-sm"
                 placeholder="0.00"
               />
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1"
+              <label class="block text-sm font-medium text-red-100 mb-1"
                 >Categoría</label
               >
               <div class="flex gap-2">
                 <select
                   [(ngModel)]="menuBasicInfo.id_categoria_menu"
                   (change)="onCategoryChange($event)"
-                  class="w-full rounded-xl border-gray-200 px-4 py-3 focus:outline-none focus:border-pink-500 focus:ring-4 focus:ring-pink-500/10 transition-all duration-200 bg-white shadow-sm appearance-none"
+                  class="w-full rounded-xl border-red-700 px-4 py-3 focus:outline-none focus:border-[#e74c3c] focus:ring-4 focus:ring-[#e74c3c]/20 transition-all duration-200 bg-red-900/40 text-red-50 shadow-sm appearance-none"
                 >
                   <option [ngValue]="null" disabled>
                     Selecciona una categoría
@@ -159,7 +159,7 @@ interface CategoryConfig {
                   </option>
                   <option
                     [ngValue]="-1"
-                    class="font-bold text-pink-600 border-t bg-pink-50"
+                    class="font-bold text-red-200 border-t bg-red-800/60"
                   >
                     + Crear Nueva Categoría
                   </option>
@@ -173,7 +173,7 @@ interface CategoryConfig {
                   (click)="
                     openMenuCategoryModal(menuBasicInfo.id_categoria_menu)
                   "
-                  class="p-3 rounded-xl border border-gray-200 hover:border-pink-300 hover:bg-pink-50 text-gray-400 hover:text-pink-500 transition-all shadow-sm"
+                  class="p-3 rounded-xl border border-red-700 hover:border-red-500 hover:bg-red-800/60 text-red-300 hover:text-red-100 transition-all shadow-sm"
                   title="Editar categoría"
                 >
                   <svg
@@ -194,15 +194,15 @@ interface CategoryConfig {
               </div>
             </div>
             <div class="md:col-span-3">
-              <label class="block text-sm font-medium text-gray-700 mb-2"
+              <label class="block text-sm font-medium text-red-100 mb-2"
                 >Foto del vaso</label
               >
               <div class="flex flex-col md:flex-row gap-4">
                 <div
                   class="w-full md:w-56 h-56 rounded-3xl border border-dashed flex items-center justify-center overflow-hidden transition-colors"
                   [ngClass]="{
-                    'border-pink-300 bg-pink-50': isDraggingMenuFile(),
-                    'border-gray-200 bg-gray-50': !isDraggingMenuFile(),
+                    'border-red-500 bg-red-800/60': isDraggingMenuFile(),
+                    'border-red-700 bg-red-900/40': !isDraggingMenuFile(),
                   }"
                   (dragover)="handleMenuImageDragOver($event)"
                   (dragleave)="handleMenuImageDragLeave($event)"
@@ -219,7 +219,7 @@ interface CategoryConfig {
                     <div class="text-center px-6">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        class="h-10 w-10 mx-auto text-gray-400 mb-2"
+                        class="h-10 w-10 mx-auto text-red-300 mb-2"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -231,23 +231,23 @@ interface CategoryConfig {
                           d="M3 7h2l2-3h10l2 3h2a1 1 0 011 1v11a1 1 0 01-1 1H3a1 1 0 01-1-1V8a1 1 0 011-1zm9 3a4 4 0 100 8 4 4 0 000-8z"
                         />
                       </svg>
-                      <p class="text-sm font-semibold text-gray-600">
+                      <p class="text-sm font-semibold text-red-200">
                         Arrastra una imagen aquí
                       </p>
-                      <p class="text-xs text-gray-400">
+                      <p class="text-xs text-red-300">
                         JPG / PNG / WEBP hasta 5MB
                       </p>
                     </div>
                   </ng-template>
                 </div>
                 <div class="flex-1 space-y-3">
-                  <p class="text-sm text-gray-500">
+                  <p class="text-sm text-red-200">
                     Dale identidad visual a este vaso. Recomendamos imágenes
                     cuadradas de al menos 800x800 px con fondo uniforme.
                   </p>
                   <div class="flex flex-wrap gap-3">
                     <label
-                      class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-gray-200 text-sm font-bold text-gray-700 cursor-pointer hover:bg-gray-50"
+                      class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-red-700 text-sm font-bold text-red-100 cursor-pointer hover:bg-red-900/40"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -275,7 +275,7 @@ interface CategoryConfig {
                       type="button"
                       (click)="removeMenuImage()"
                       [disabled]="!menuImageUrl() || isUploadingMenuImage()"
-                      class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-gray-200 text-sm font-bold text-gray-500 hover:text-red-500 hover:border-red-200 disabled:opacity-40"
+                      class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-red-700 text-sm font-bold text-red-200 hover:text-red-500 hover:border-red-700 disabled:opacity-40"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -296,7 +296,7 @@ interface CategoryConfig {
                   </div>
                   <p
                     *ngIf="isUploadingMenuImage()"
-                    class="text-xs font-semibold text-pink-600"
+                    class="text-xs font-semibold text-red-200"
                   >
                     Subiendo imagen...
                   </p>
@@ -311,10 +311,10 @@ interface CategoryConfig {
           <!-- LEFT SIDEBAR: Categories -->
           <aside class="w-full lg:w-1/4 space-y-4">
             <div
-              class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 h-fit"
+              class="bg-[#701818] rounded-3xl p-6 shadow-sm border border-red-600 h-fit"
             >
-              <h3 class="text-lg font-bold text-gray-900 mb-2">Categorías</h3>
-              <p class="text-xs text-gray-500 mb-6">
+              <h3 class="text-lg font-bold text-red-50 mb-2">Categorías</h3>
+              <p class="text-xs text-red-200 mb-6">
                 Selecciona un grupo para editar
               </p>
 
@@ -322,7 +322,7 @@ interface CategoryConfig {
                 <div
                   *ngFor="let cat of categories()"
                   (click)="selectCategory(cat)"
-                  [class.bg-pink-50]="
+                  [class.bg-red-800]="
                     selectedCategory()?.id_categoria === cat.id_categoria
                   "
                   [class.border-pink-100]="
@@ -331,21 +331,21 @@ interface CategoryConfig {
                   [class.border-transparent]="
                     selectedCategory()?.id_categoria !== cat.id_categoria
                   "
-                  class="group flex items-center justify-between p-3 rounded-2xl cursor-pointer border hover:bg-gray-50 transition-all duration-200"
+                  class="group flex items-center justify-between p-3 rounded-2xl cursor-pointer border hover:bg-red-900/40 transition-all duration-200"
                 >
                   <div class="flex items-center gap-3 overflow-hidden">
                     <!-- Icon placeholder based on name or default -->
                     <div
-                      [class.bg-pink-100]="
+                      [class.bg-red-800]="
                         selectedCategory()?.id_categoria === cat.id_categoria
                       "
-                      [class.text-pink-600]="
+                      [class.text-red-200]="
                         selectedCategory()?.id_categoria === cat.id_categoria
                       "
-                      [class.bg-gray-100]="
+                      [class.bg-red-800]="
                         selectedCategory()?.id_categoria !== cat.id_categoria
                       "
-                      [class.text-gray-500]="
+                      [class.text-red-200]="
                         selectedCategory()?.id_categoria !== cat.id_categoria
                       "
                       class="p-2 rounded-xl transition-colors"
@@ -369,10 +369,10 @@ interface CategoryConfig {
                       [class.font-bold]="
                         selectedCategory()?.id_categoria === cat.id_categoria
                       "
-                      [class.text-gray-900]="
+                      [class.text-red-50]="
                         selectedCategory()?.id_categoria === cat.id_categoria
                       "
-                      [class.text-gray-600]="
+                      [class.text-red-200]="
                         selectedCategory()?.id_categoria !== cat.id_categoria
                       "
                       class="truncate text-sm transition-colors"
@@ -388,7 +388,7 @@ interface CategoryConfig {
                   >
                     <button
                       (click)="openCategoryModal(cat)"
-                      class="p-1 hover:bg-white rounded-lg text-gray-400 hover:text-blue-500 transition-colors"
+                      class="p-1 hover:bg-red-900/40 rounded-lg text-red-300 hover:text-red-100 transition-colors"
                       title="Editar Categoría"
                     >
                       <svg
@@ -412,7 +412,7 @@ interface CategoryConfig {
                 <!-- Add Category Button -->
                 <div
                   (click)="openCategoryModal()"
-                  class="flex items-center justify-center p-3 rounded-2xl cursor-pointer border-2 border-dashed border-gray-200 hover:border-pink-300 hover:bg-pink-50 transition-all text-gray-400 hover:text-pink-500 group"
+                  class="flex items-center justify-center p-3 rounded-2xl cursor-pointer border-2 border-dashed border-red-700 hover:border-red-500 hover:bg-red-800/60 transition-all text-red-300 hover:text-red-100 group"
                 >
                   <div class="flex items-center gap-2">
                     <svg
@@ -442,12 +442,12 @@ interface CategoryConfig {
           >
             <!-- 3. General Rules Card -->
             <div
-              class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100"
+              class="bg-[#8a2020] rounded-3xl p-8 shadow-sm border border-red-600"
             >
               <div class="flex items-center gap-3 mb-8">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-pink-500"
+                  class="h-6 w-6 text-red-100"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -459,7 +459,7 @@ interface CategoryConfig {
                     d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
                   />
                 </svg>
-                <h3 class="text-xl font-bold text-gray-900">
+                <h3 class="text-xl font-bold text-red-50">
                   Reglas Generales ({{ selectedCategory()?.nombre_categoria }})
                 </h3>
               </div>
@@ -467,7 +467,7 @@ interface CategoryConfig {
               <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Cantidad Gratis -->
                 <div>
-                  <label class="block text-sm font-bold text-gray-900 mb-2"
+                  <label class="block text-sm font-bold text-red-50 mb-2"
                     >Cantidad Gratis</label
                   >
                   <div class="relative">
@@ -475,48 +475,48 @@ interface CategoryConfig {
                       type="number"
                       [ngModel]="currentConfig?.cant_gratis"
                       (ngModelChange)="updateConfigField('cant_gratis', $event)"
-                      class="block w-full pl-4 pr-16 py-3 rounded-xl border-gray-200 bg-gray-50 focus:outline-none focus:bg-white focus:border-pink-500 focus:ring-4 focus:ring-pink-500/10 transition-all duration-200 font-medium text-gray-900 shadow-sm"
+                      class="block w-full pl-4 pr-16 py-3 rounded-xl border-red-700 bg-red-900/40 focus:outline-none focus:bg-red-900/40 focus:border-[#e74c3c] focus:ring-4 focus:ring-[#e74c3c]/20 transition-all duration-200 font-medium text-red-50 shadow-sm"
                     />
                     <div
                       class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none"
                     >
                       <span
-                        class="text-gray-400 text-xs font-bold uppercase tracking-wide"
+                        class="text-red-300 text-xs font-bold uppercase tracking-wide"
                         >Porciones</span
                       >
                     </div>
                   </div>
-                  <p class="mt-2 text-xs text-pink-700">
+                  <p class="mt-2 text-xs text-red-200">
                     Cantidad incluida en el precio base.
                   </p>
                 </div>
 
                 <!-- Costo Extra -->
                 <div>
-                  <label class="block text-sm font-bold text-gray-900 mb-2"
+                  <label class="block text-sm font-bold text-red-50 mb-2"
                     >Costo Extra Adicional</label
                   >
                   <div class="relative">
                     <div
                       class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
                     >
-                      <span class="text-gray-400 font-bold text-xs">Bs.</span>
+                      <span class="text-red-300 font-bold text-xs">Bs.</span>
                     </div>
                     <input
                       type="number"
                       [ngModel]="currentConfig?.costo_extra"
                       (ngModelChange)="updateConfigField('costo_extra', $event)"
-                      class="block w-full pl-8 pr-4 py-3 rounded-xl border-gray-200 bg-gray-50 focus:outline-none focus:bg-white focus:border-pink-500 focus:ring-4 focus:ring-pink-500/10 transition-all duration-200 font-medium text-gray-900 shadow-sm"
+                      class="block w-full pl-8 pr-4 py-3 rounded-xl border-red-700 bg-red-900/40 focus:outline-none focus:bg-red-900/40 focus:border-[#e74c3c] focus:ring-4 focus:ring-[#e74c3c]/20 transition-all duration-200 font-medium text-red-50 shadow-sm"
                     />
                   </div>
-                  <p class="mt-2 text-xs text-pink-700">
+                  <p class="mt-2 text-xs text-red-200">
                     Precio por porción extra.
                   </p>
                 </div>
 
                 <!-- Combinaciones -->
                 <div>
-                  <label class="block text-sm font-bold text-gray-900 mb-2"
+                  <label class="block text-sm font-bold text-red-50 mb-2"
                     >Permitir Combinaciones</label
                   >
                   <div class="flex items-center h-[50px]">
@@ -531,7 +531,7 @@ interface CategoryConfig {
                       class="relative inline-flex flex-shrink-0 h-7 w-12 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
                       [ngClass]="
                         currentConfig?.combinacion
-                          ? 'bg-pink-500'
+                          ? 'bg-red-800/60'
                           : 'bg-gray-200'
                       "
                     >
@@ -543,11 +543,11 @@ interface CategoryConfig {
                             ? 'translate-x-5'
                             : 'translate-x-0'
                         "
-                        class="pointer-events-none inline-block h-6 w-6 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"
+                        class="pointer-events-none inline-block h-6 w-6 rounded-full bg-red-900/40 shadow transform ring-0 transition ease-in-out duration-200"
                       >
                       </span>
                     </button>
-                    <span class="ml-3 text-sm font-medium text-gray-900">
+                    <span class="ml-3 text-sm font-medium text-red-50">
                       {{
                         currentConfig?.combinacion
                           ? "Habilitado"
@@ -555,7 +555,7 @@ interface CategoryConfig {
                       }}
                     </span>
                   </div>
-                  <p class="mt-2 text-xs text-pink-700">
+                  <p class="mt-2 text-xs text-red-200">
                     El cliente puede mezclar opciones.
                   </p>
                 </div>
@@ -564,16 +564,16 @@ interface CategoryConfig {
 
             <!-- 4. Availability & Inventory -->
             <div
-              class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100"
+              class="bg-[#731919] rounded-3xl p-8 shadow-sm border border-red-600"
             >
               <div
                 class="flex flex-col sm:flex-row justify-between items-end sm:items-center mb-6 gap-4"
               >
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900">
+                  <h3 class="text-xl font-bold text-red-50">
                     Disponibilidad e Inventario
                   </h3>
-                  <p class="text-sm text-gray-500 mt-1">
+                  <p class="text-sm text-red-200 mt-1">
                     Selecciona los ingredientes disponibles para este tamaño.
                   </p>
                 </div>
@@ -583,7 +583,7 @@ interface CategoryConfig {
                     class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
                   >
                     <svg
-                      class="h-4 w-4 text-gray-400"
+                      class="h-4 w-4 text-red-300"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -598,7 +598,7 @@ interface CategoryConfig {
                   </div>
                   <input
                     type="text"
-                    class="block w-full pl-10 pr-4 py-2 rounded-xl border border-gray-200 bg-gray-50 text-sm focus:outline-none focus:bg-white focus:border-pink-500 focus:ring-4 focus:ring-pink-500/10 transition-all duration-200 shadow-sm"
+                    class="block w-full pl-10 pr-4 py-2 rounded-xl border border-red-700 bg-red-900/40 text-red-50 placeholder-red-300 text-sm focus:outline-none focus:bg-red-900/40 focus:border-[#e74c3c] focus:ring-4 focus:ring-[#e74c3c]/20 transition-all duration-200 shadow-sm"
                     placeholder="Buscar ingrediente..."
                   />
                 </div>
@@ -608,17 +608,17 @@ interface CategoryConfig {
                 <table class="w-full">
                   <thead>
                     <tr
-                      class="text-left text-xs font-bold text-gray-400 uppercase tracking-wider border-b border-gray-100"
+                      class="text-left text-xs font-bold text-red-300 uppercase tracking-wider border-b border-red-700"
                     >
                       <th class="pb-3 pl-2">Ingrediente</th>
                       <!-- <th class="pb-3">Estado</th> Removed as requested -->
                       <th class="pb-3">Costo Premium (Base)</th>
                     </tr>
                   </thead>
-                  <tbody class="divide-y divide-gray-50">
+                  <tbody class="divide-y divide-red-800/60">
                     <tr
                       *ngFor="let item of currentConfig?.ingredients"
-                      class="group hover:bg-gray-50 transition-colors"
+                      class="group hover:bg-red-900/40 transition-colors"
                     >
                       <!-- Checkbox + Info -->
                       <td class="py-4 pl-2">
@@ -628,12 +628,12 @@ interface CategoryConfig {
                               type="checkbox"
                               [checked]="item.selected"
                               (change)="toggleIngredient(item)"
-                              class="h-6 w-6 text-pink-500 border-gray-300 rounded focus:ring-pink-400 cursor-pointer transition-all"
+                              class="h-6 w-6 text-red-100 border-red-700 rounded focus:ring-pink-400 cursor-pointer transition-all"
                             />
                           </div>
                           <div class="flex items-center gap-3">
                             <div
-                              class="h-10 w-10 rounded-xl bg-gray-100 flex items-center justify-center text-gray-400 overflow-hidden"
+                              class="h-10 w-10 rounded-xl bg-red-800 flex items-center justify-center text-red-300 overflow-hidden"
                             >
                               <ng-container
                                 *ngIf="
@@ -666,7 +666,7 @@ interface CategoryConfig {
                             <div>
                               <div class="flex items-center gap-2">
                                 <p
-                                  class="font-bold text-gray-900 group-hover:text-pink-600 transition-colors cursor-pointer"
+                                  class="font-bold text-red-50 group-hover:text-red-200 transition-colors cursor-pointer"
                                   (click)="
                                     openIngredientModal(item);
                                     $event.stopPropagation()
@@ -679,7 +679,7 @@ interface CategoryConfig {
                                     openIngredientModal(item);
                                     $event.stopPropagation()
                                   "
-                                  class="text-gray-300 hover:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"
+                                  class="text-red-300 hover:text-red-100 opacity-0 group-hover:opacity-100 transition-opacity"
                                 >
                                   <svg
                                     class="w-3 h-3"
@@ -696,7 +696,7 @@ interface CategoryConfig {
                                   </svg>
                                 </button>
                               </div>
-                              <p class="text-xs text-gray-400">
+                              <p class="text-xs text-red-300">
                                 ID: ING-{{ item.id_ingrediente }}
                               </p>
                             </div>
@@ -715,7 +715,7 @@ interface CategoryConfig {
                           <div
                             class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
                           >
-                            <span class="text-gray-400 font-bold text-xs"
+                            <span class="text-red-300 font-bold text-xs"
                               >Bs.</span
                             >
                           </div>
@@ -727,7 +727,7 @@ interface CategoryConfig {
                               updateIngredientPrice(item, $event)
                             "
                             [class.opacity-50]="!item.selected"
-                            class="block w-full pl-9 pr-3 py-2 rounded-lg border-gray-200 text-sm focus:outline-none focus:border-pink-500 focus:ring-4 focus:ring-pink-500/10 transition-all duration-200 font-bold text-gray-700 shadow-sm text-right"
+                            class="block w-full pl-9 pr-3 py-2 rounded-lg border-red-700 text-sm focus:outline-none focus:border-[#e74c3c] focus:ring-4 focus:ring-[#e74c3c]/20 transition-all duration-200 font-bold text-red-100 shadow-sm text-right"
                           />
 
                           <div
@@ -735,7 +735,7 @@ interface CategoryConfig {
                             class="absolute inset-y-0 right-[-80px] flex items-center pointer-events-none"
                           >
                             <span
-                              class="text-[10px] font-bold text-pink-600 bg-pink-50 px-2 py-0.5 rounded uppercase"
+                              class="text-[10px] font-bold text-red-200 bg-red-800/60 px-2 py-0.5 rounded uppercase"
                               >Premium</span
                             >
                           </div>
@@ -748,7 +748,7 @@ interface CategoryConfig {
                       <td colspan="3" class="py-4">
                         <div
                           (click)="openIngredientModal()"
-                          class="flex items-center justify-center p-3 rounded-xl cursor-pointer border-2 border-dashed border-gray-200 hover:border-pink-300 hover:bg-pink-50 transition-all text-gray-400 hover:text-pink-500 group"
+                          class="flex items-center justify-center p-3 rounded-xl cursor-pointer border-2 border-dashed border-red-700 hover:border-red-500 hover:bg-red-800/60 transition-all text-red-300 hover:text-red-100 group"
                         >
                           <div class="flex items-center gap-2">
                             <svg
@@ -780,11 +780,11 @@ interface CategoryConfig {
 
           <ng-template #noSelectionTpl>
             <div
-              class="w-full lg:w-3/4 flex flex-col items-center justify-center p-12 bg-white rounded-3xl border border-gray-100 border-dashed min-h-[400px]"
+              class="w-full lg:w-3/4 flex flex-col items-center justify-center p-12 bg-[#7a1a1a]/70 rounded-3xl border border-red-600 border-dashed min-h-[400px]"
             >
-              <div class="bg-gray-50 p-6 rounded-full mb-4">
+              <div class="bg-red-900/40 p-6 rounded-full mb-4">
                 <svg
-                  class="w-12 h-12 text-gray-300"
+                  class="w-12 h-12 text-red-300"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -797,10 +797,10 @@ interface CategoryConfig {
                   ></path>
                 </svg>
               </div>
-              <h3 class="text-lg font-bold text-gray-900">
+              <h3 class="text-lg font-bold text-red-50">
                 Ninguna categoría seleccionada
               </h3>
-              <p class="text-gray-500 text-center max-w-sm mt-2">
+              <p class="text-red-200 text-center max-w-sm mt-2">
                 Selecciona un grupo del panel izquierdo para configurar sus
                 reglas, ingredientes y precios para este vaso.
               </p>
@@ -817,9 +817,9 @@ interface CategoryConfig {
         class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
       >
         <div
-          class="bg-white rounded-2xl w-full max-w-md p-6 shadow-2xl scale-100 animate-in fade-in zoom-in duration-200"
+          class="bg-[#7f1d1d] border border-red-700 rounded-2xl w-full max-w-md p-6 shadow-2xl scale-100 animate-in fade-in zoom-in duration-200"
         >
-          <h3 class="text-xl font-extrabold text-gray-900 mb-4">
+          <h3 class="text-xl font-extrabold text-red-50 mb-4">
             {{
               editingMenuCategory()
                 ? "Editar Categoría de Menú"
@@ -827,7 +827,7 @@ interface CategoryConfig {
             }}
           </h3>
           <div class="mb-6">
-            <label class="block text-sm font-bold text-gray-700 mb-2"
+            <label class="block text-sm font-bold text-red-100 mb-2"
               >Nombre de la Categoría</label
             >
             <input
@@ -835,19 +835,19 @@ interface CategoryConfig {
               [(ngModel)]="menuCategoryName"
               (keydown.enter)="saveMenuCategory()"
               placeholder="Ej: Bebidas, Postres..."
-              class="w-full rounded-xl border-gray-200 px-4 py-3 focus:outline-none focus:border-pink-500 focus:ring-4 focus:ring-pink-500/10 transition-all font-medium text-lg"
+              class="w-full rounded-xl border-red-700 px-4 py-3 bg-red-950/40 text-red-50 placeholder-red-300 focus:outline-none focus:border-[#e74c3c] focus:ring-4 focus:ring-[#e74c3c]/20 transition-all font-medium text-lg"
             />
           </div>
           <div class="flex justify-end gap-3">
             <button
               (click)="showMenuCategoryModal.set(false)"
-              class="px-5 py-2.5 rounded-xl text-gray-500 font-bold hover:bg-gray-100 transition-colors"
+              class="px-5 py-2.5 rounded-xl text-red-200 font-bold hover:bg-red-800 transition-colors"
             >
               Cancelar
             </button>
             <button
               (click)="saveMenuCategory()"
-              class="px-5 py-2.5 rounded-xl bg-pink-500 text-white font-bold hover:bg-pink-600 shadow-lg shadow-pink-200 transition-all active:scale-95"
+              class="px-5 py-2.5 rounded-xl bg-red-800/60 text-red-50 font-bold hover:bg-[#c0392b] shadow-lg shadow-red-950/40 transition-all active:scale-95"
             >
               Guardar
             </button>
@@ -861,33 +861,33 @@ interface CategoryConfig {
         class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
       >
         <div
-          class="bg-white rounded-2xl w-full max-w-md p-6 shadow-2xl scale-100 animate-in fade-in zoom-in duration-200"
+          class="bg-[#7f1d1d] border border-red-700 rounded-2xl w-full max-w-md p-6 shadow-2xl scale-100 animate-in fade-in zoom-in duration-200"
         >
-          <h3 class="text-xl font-extrabold text-gray-900 mb-4">
+          <h3 class="text-xl font-extrabold text-red-50 mb-4">
             {{ editingItem() ? "Editar Categoría" : "Nueva Categoría" }}
           </h3>
           <div class="mb-6">
-            <label class="block text-sm font-bold text-gray-700 mb-2"
+            <label class="block text-sm font-bold text-red-100 mb-2"
               >Nombre de la Categoría</label
             >
             <input
               type="text"
               [ngModel]="modalInputValue()"
               (ngModelChange)="modalInputValue.set($event)"
-              class="w-full rounded-xl border-gray-300 focus:outline-none focus:border-pink-500 focus:ring-4 focus:ring-pink-500/10 transition-all duration-200 px-4 py-3 shadow-sm"
+              class="w-full rounded-xl border-red-700 bg-red-950/40 text-red-50 placeholder-red-300 focus:outline-none focus:border-[#e74c3c] focus:ring-4 focus:ring-[#e74c3c]/20 transition-all duration-200 px-4 py-3 shadow-sm"
               placeholder="Ej: Frutas"
             />
           </div>
           <div class="flex justify-end gap-3">
             <button
               (click)="showCategoryModal.set(false)"
-              class="px-4 py-2 text-gray-600 font-bold hover:bg-gray-100 rounded-xl"
+              class="px-4 py-2 text-red-200 font-bold hover:bg-red-800 rounded-xl"
             >
               Cancelar
             </button>
             <button
               (click)="saveCategory()"
-              class="px-6 py-2 bg-pink-500 hover:bg-pink-600 text-white font-bold rounded-xl shadow-lg shadow-pink-200 transition-transform active:scale-95"
+              class="px-6 py-2 bg-red-800/60 hover:bg-[#c0392b] text-red-50 font-bold rounded-xl shadow-lg shadow-red-950/40 transition-transform active:scale-95"
             >
               Guardar
             </button>
@@ -901,25 +901,25 @@ interface CategoryConfig {
         class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
       >
         <div
-          class="bg-white rounded-2xl w-full max-w-md p-6 shadow-2xl scale-100 animate-in fade-in zoom-in duration-200"
+          class="bg-[#7f1d1d] border border-red-700 rounded-2xl w-full max-w-md p-6 shadow-2xl scale-100 animate-in fade-in zoom-in duration-200"
         >
-          <h3 class="text-xl font-extrabold text-gray-900 mb-4">
+          <h3 class="text-xl font-extrabold text-red-50 mb-4">
             {{ editingItem() ? "Editar Ingrediente" : "Nuevo Ingrediente" }}
           </h3>
           <div class="mb-6">
-            <label class="block text-sm font-bold text-gray-700 mb-2"
+            <label class="block text-sm font-bold text-red-100 mb-2"
               >Nombre del Ingrediente</label
             >
             <input
               type="text"
               [ngModel]="modalInputValue()"
               (ngModelChange)="modalInputValue.set($event)"
-              class="w-full rounded-xl border-gray-300 focus:outline-none focus:border-pink-500 focus:ring-4 focus:ring-pink-500/10 transition-all duration-200 px-4 py-3 shadow-sm"
+              class="w-full rounded-xl border-red-700 bg-red-950/40 text-red-50 placeholder-red-300 focus:outline-none focus:border-[#e74c3c] focus:ring-4 focus:ring-[#e74c3c]/20 transition-all duration-200 px-4 py-3 shadow-sm"
               placeholder="Ej: Mango"
             />
           </div>
           <div class="mb-6">
-            <label class="block text-sm font-bold text-gray-700 mb-2"
+            <label class="block text-sm font-bold text-red-100 mb-2"
               >Foto del Ingrediente</label
             >
             <div
@@ -931,8 +931,8 @@ interface CategoryConfig {
               <div
                 class="w-24 h-24 rounded-2xl border border-dashed flex items-center justify-center overflow-hidden transition-colors"
                 [ngClass]="{
-                  'bg-pink-50 border-pink-300': isDraggingFile(),
-                  'bg-gray-50 border-gray-300': !isDraggingFile(),
+                  'bg-red-800/60 border-red-500': isDraggingFile(),
+                  'bg-red-900/40 border-red-700': !isDraggingFile(),
                 }"
               >
                 <ng-container
@@ -962,7 +962,7 @@ interface CategoryConfig {
               </div>
               <div class="flex-1 space-y-2">
                 <label
-                  class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-gray-200 text-sm font-bold text-gray-700 cursor-pointer hover:bg-gray-50"
+                  class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-red-700 text-sm font-bold text-red-100 cursor-pointer hover:bg-red-900/40"
                 >
                   <input
                     type="file"
@@ -986,13 +986,13 @@ interface CategoryConfig {
                   </svg>
                   <span>Seleccionar imagen</span>
                 </label>
-                <p class="text-xs text-gray-500">
+                <p class="text-xs text-red-200">
                   Arrastra una imagen (JPG, PNG, WEBP) o haz clic para
                   seleccionar. Se sube automáticamente a Cloudinary.
                 </p>
                 <p
                   *ngIf="isUploadingImage()"
-                  class="text-xs font-semibold text-pink-600"
+                  class="text-xs font-semibold text-red-200"
                 >
                   Subiendo imagen, por favor espera...
                 </p>
@@ -1010,14 +1010,14 @@ interface CategoryConfig {
           <div class="flex justify-end gap-3">
             <button
               (click)="closeIngredientModal()"
-              class="px-4 py-2 text-gray-600 font-bold hover:bg-gray-100 rounded-xl"
+              class="px-4 py-2 text-red-200 font-bold hover:bg-red-800 rounded-xl"
             >
               Cancelar
             </button>
             <button
               (click)="saveIngredient()"
               [disabled]="isUploadingImage()"
-              class="px-6 py-2 bg-pink-500 hover:bg-pink-600 text-white font-bold rounded-xl shadow-lg shadow-pink-200 transition-transform active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+              class="px-6 py-2 bg-red-800/60 hover:bg-[#c0392b] text-red-50 font-bold rounded-xl shadow-lg shadow-red-950/40 transition-transform active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {{ isUploadingImage() ? "Subiendo..." : "Guardar" }}
             </button>
@@ -1031,12 +1031,12 @@ interface CategoryConfig {
         class="fixed bottom-6 right-6 z-[100] transform transition-all duration-300 ease-in-out animate-in slide-in-from-bottom-5 fade-in"
       >
         <div
-          [class.bg-green-500]="notification().type === 'success'"
+          [class.bg-red-600]="notification().type === 'success'"
           [class.bg-red-500]="notification().type === 'error'"
-          class="flex items-center gap-3 px-6 py-4 rounded-2xl shadow-2xl shadow-gray-200 text-white min-w-[320px]"
+          class="flex items-center gap-3 px-6 py-4 rounded-2xl shadow-2xl shadow-gray-200 text-red-50 min-w-[320px]"
         >
           <!-- Icon -->
-          <div class="bg-white/20 p-2 rounded-xl">
+          <div class="bg-red-50/20 p-2 rounded-xl">
             <svg
               *ngIf="notification().type === 'success'"
               xmlns="http://www.w3.org/2000/svg"
@@ -1073,7 +1073,7 @@ interface CategoryConfig {
             <h4 class="font-bold text-lg">
               {{ notification().type === "success" ? "¡Éxito!" : "Error" }}
             </h4>
-            <p class="text-sm text-white/90 font-medium">
+            <p class="text-sm text-red-100 font-medium">
               {{ notification().message }}
             </p>
           </div>
@@ -1082,7 +1082,7 @@ interface CategoryConfig {
             (click)="
               notification.set({ show: false, message: '', type: 'success' })
             "
-            class="ml-auto text-white/60 hover:text-white transition-colors"
+            class="ml-auto text-red-200 hover:text-red-50 transition-colors"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

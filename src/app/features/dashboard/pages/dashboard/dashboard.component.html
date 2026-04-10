@@ -1,17 +1,17 @@
-<div class="min-h-screen bg-slate-50 p-6 space-y-8 pb-24">
+<div class="min-h-screen bg-[#3498db] p-6 space-y-8 pb-24">
   <!-- Header & Filters -->
   <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
     <div>
-      <h1 class="text-2xl font-black text-slate-900 tracking-tight">
+      <h1 class="text-2xl font-black text-white tracking-tight">
         Dashboard
       </h1>
-      <p class="text-slate-500 font-medium text-sm mt-1">
+      <p class="text-white/80 font-medium text-sm mt-1">
         Resumen de ventas y métricas
       </p>
     </div>
 
     <div
-      class="flex flex-col sm:flex-row gap-3 bg-white p-2 rounded-2xl shadow-sm border border-slate-100"
+      class="flex flex-col sm:flex-row gap-3 bg-[#2c3e50] p-2 rounded-2xl shadow-sm border border-white/20"
     >
       <!-- Sucursal Filter -->
       <select
@@ -47,7 +47,7 @@
 
         <button
           (click)="toggleDateMode()"
-          class="p-2.5 rounded-xl hover:bg-slate-100 text-slate-500 transition-colors tooltip-trigger"
+          class="p-2.5 rounded-xl hover:bg-[#3498db] text-white/80 transition-colors tooltip-trigger"
           title="Rango de fechas"
         >
           <svg
@@ -88,7 +88,7 @@
   <!-- Loading State -->
   <div
     *ngIf="loading()"
-    class="h-96 flex flex-col items-center justify-center text-slate-400 gap-4"
+    class="h-96 flex flex-col items-center justify-center text-white/80 gap-4"
   >
     <div
       class="w-12 h-12 border-4 border-[#3498db]/30 border-t-[#3498db] rounded-full animate-spin"
@@ -104,17 +104,17 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       <!-- Card: Efectivo -->
       <div
-        class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100 relative overflow-hidden group hover:shadow-md transition-all"
+        class="bg-[#e74c3c] p-6 rounded-[2rem] shadow-sm border border-[#e74c3c] relative overflow-hidden group hover:shadow-md transition-all"
       >
         <div class="relative z-10">
-          <p class="text-slate-500 text-sm font-bold mb-1">Total Efectivo</p>
-          <h3 class="text-3xl font-black text-slate-900 tracking-tight">
+          <p class="text-white/90 text-sm font-bold mb-1">Total Efectivo</p>
+          <h3 class="text-3xl font-black text-white tracking-tight">
             {{ keys()?.monto_efectivo_total | number: "1.0-2" }}
-            <span class="text-sm text-slate-400 font-medium">Bs.</span>
+            <span class="text-sm text-white/70 font-medium">Bs.</span>
           </h3>
         </div>
         <div
-          class="absolute right-4 top-4 p-3 bg-green-50 rounded-2xl text-green-600 group-hover:scale-110 transition-transform"
+          class="absolute right-4 top-4 p-3 bg-red-100 rounded-2xl text-red-700 group-hover:scale-110 transition-transform"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -135,13 +135,13 @@
 
       <!-- Card: QR -->
       <div
-        class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100 relative overflow-hidden group hover:shadow-md transition-all"
+        class="bg-[#e74c3c] p-6 rounded-[2rem] shadow-sm border border-[#e74c3c] relative overflow-hidden group hover:shadow-md transition-all"
       >
         <div class="relative z-10">
-          <p class="text-slate-500 text-sm font-bold mb-1">Total QR</p>
-          <h3 class="text-3xl font-black text-slate-900 tracking-tight">
+          <p class="text-white/90 text-sm font-bold mb-1">Total QR</p>
+          <h3 class="text-3xl font-black text-white tracking-tight">
             {{ keys()?.monto_qr_total | number: "1.0-2" }}
-            <span class="text-sm text-slate-400 font-medium">Bs.</span>
+            <span class="text-sm text-white/70 font-medium">Bs.</span>
           </h3>
         </div>
         <div
@@ -166,13 +166,13 @@
 
       <!-- Card: Total Ventas -->
       <div
-        class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100 relative overflow-hidden group hover:shadow-md transition-all"
+        class="bg-[#e74c3c] p-6 rounded-[2rem] shadow-sm border border-[#e74c3c] relative overflow-hidden group hover:shadow-md transition-all"
       >
         <div class="relative z-10">
-          <p class="text-slate-500 text-sm font-bold mb-1">Total General</p>
-          <h3 class="text-3xl font-black text-slate-900 tracking-tight">
+          <p class="text-white/90 text-sm font-bold mb-1">Total General</p>
+          <h3 class="text-3xl font-black text-white tracking-tight">
             {{ keys()?.total_general | number: "1.0-2" }}
-            <span class="text-sm text-slate-400 font-medium">Bs.</span>
+            <span class="text-sm text-white/70 font-medium">Bs.</span>
           </h3>
         </div>
         <div
@@ -197,13 +197,13 @@
 
       <!-- Card: Total Items -->
       <div
-        class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100 relative overflow-hidden group hover:shadow-md transition-all"
+        class="bg-[#e74c3c] p-6 rounded-[2rem] shadow-sm border border-[#e74c3c] relative overflow-hidden group hover:shadow-md transition-all"
       >
         <div class="relative z-10">
-          <p class="text-slate-500 text-sm font-bold mb-1">
+          <p class="text-white/90 text-sm font-bold mb-1">
             Total productos vendidos
           </p>
-          <h3 class="text-3xl font-black text-slate-900 tracking-tight">
+          <h3 class="text-3xl font-black text-white tracking-tight">
             {{ keys()?.cantidad_total_items }}
           </h3>
         </div>
@@ -231,9 +231,9 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
       <!-- 2. Vasos Más Vendidos (Vertical Bar Chart) - Takes 2 cols -->
       <div
-        class="lg:col-span-2 bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100"
+        class="lg:col-span-2 bg-[#2c3e50] p-8 rounded-[2rem] shadow-sm border border-white/20"
       >
-        <h3 class="text-xl font-extrabold text-slate-900 mb-6">
+        <h3 class="text-xl font-extrabold text-white mb-6">
           Vasos más vendidos
         </h3>
 
@@ -244,17 +244,17 @@
           >
             <!-- Value Label -->
             <span
-              class="mb-2 font-black text-slate-900 text-sm animate-in fade-in slide-in-from-bottom-2"
+              class="mb-2 font-black text-white text-sm animate-in fade-in slide-in-from-bottom-2"
               >{{ menu.cantidad }}</span
             >
 
             <!-- Bar Bg -->
             <div
-              class="w-full max-w-[60px] bg-slate-50 rounded-2xl h-full relative overflow-hidden flex items-end"
+              class="w-full max-w-[60px] bg-white/20 rounded-2xl h-full relative overflow-hidden flex items-end"
             >
               <!-- Bar Fill -->
               <div
-                class="w-full bg-[#3498db] rounded-t-2xl transition-all duration-1000 ease-out group-hover:bg-[#2ecc71]"
+                class="w-full bg-[#3498db] rounded-t-2xl transition-all duration-1000 ease-out group-hover:bg-[#e74c3c]"
                 [style.height.%]="
                   (parseInt(menu.cantidad) / maxMenuSold()) * 100
                 "
@@ -263,7 +263,7 @@
 
             <!-- Name Label -->
             <span
-              class="mt-3 text-xs font-bold text-slate-500 text-center leading-tight"
+              class="mt-3 text-xs font-bold text-white/85 text-center leading-tight"
               >{{ menu.nombre_menu }}</span
             >
           </div>
@@ -274,9 +274,9 @@
       <div class="lg:col-span-1 space-y-4">
         <div
           *ngFor="let cat of primaryCategories()"
-          class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100 h-[calc(50%-0.5rem)] flex flex-col justify-center"
+          class="bg-[#2c3e50] p-6 rounded-[2rem] shadow-sm border border-white/20 h-[calc(50%-0.5rem)] flex flex-col justify-center"
         >
-          <h4 class="font-extrabold text-slate-900 mb-4">
+          <h4 class="font-extrabold text-white mb-4">
             {{ cat.nombre_categoria }}
           </h4>
           <!-- ... donut content ... -->
@@ -330,12 +330,12 @@
                     [style.background-color]="seg.color"
                   ></div>
                   <span
-                    class="text-slate-600 font-medium truncate max-w-[100px]"
+                    class="text-white/85 font-medium truncate max-w-[100px]"
                     [title]="seg.nombre_ingrediente"
                     >{{ seg.nombre_ingrediente }}</span
                   >
                 </div>
-                <span class="font-bold text-slate-900">{{ seg.percent }}%</span>
+                <span class="font-bold text-white">{{ seg.percent }}%</span>
               </div>
             </div>
           </div>
@@ -347,19 +347,19 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
       <!-- 4. Hours Chart (Area) - Right column (2 cols) -->
       <div
-        class="lg:col-span-2 bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 relative overflow-hidden lg:order-2"
+        class="lg:col-span-2 bg-[#2c3e50] p-8 rounded-[2rem] shadow-sm border border-white/20 relative overflow-hidden lg:order-2"
       >
         <div class="flex justify-between items-center mb-8 relative z-10">
           <div>
-            <h3 class="text-xl font-extrabold text-slate-900">
+            <h3 class="text-xl font-extrabold text-white">
               Horas más concurrentes
             </h3>
-            <p class="text-slate-500 text-sm font-medium">
+            <p class="text-white/80 text-sm font-medium">
               Tendencia de ventas por hora
             </p>
           </div>
 
-          <button class="p-2 text-slate-400 hover:text-[#3498db]">
+          <button class="p-2 text-white/70 hover:text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-6 w-6"
@@ -446,7 +446,7 @@
 
           <!-- X Axis Labels (HTML overlay for better text handling) -->
           <div
-            class="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-slate-400 font-bold px-2 pointer-events-none translate-y-6"
+            class="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-white/75 font-bold px-2 pointer-events-none translate-y-6"
           >
             <span>07:00</span>
             <span>10:00</span>
@@ -465,9 +465,9 @@
       <div class="lg:col-span-1 space-y-4 lg:order-1">
         <div
           *ngFor="let cat of secondaryCategories()"
-          class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100"
+          class="bg-[#2c3e50] p-6 rounded-[2rem] shadow-sm border border-white/20"
         >
-          <h4 class="font-extrabold text-slate-900 mb-4">
+          <h4 class="font-extrabold text-white mb-4">
             {{ cat.nombre_categoria }}
           </h4>
 
@@ -521,12 +521,12 @@
                     [style.background-color]="seg.color"
                   ></div>
                   <span
-                    class="text-slate-600 font-medium truncate max-w-[100px]"
+                    class="text-white/85 font-medium truncate max-w-[100px]"
                     [title]="seg.nombre_ingrediente"
                     >{{ seg.nombre_ingrediente }}</span
                   >
                 </div>
-                <span class="font-bold text-slate-900">{{ seg.percent }}%</span>
+                <span class="font-bold text-white">{{ seg.percent }}%</span>
               </div>
             </div>
           </div>

@@ -30,11 +30,11 @@ interface CartItem {
   imports: [CommonModule, FormsModule, RouterLink],
   template: `
     <!-- Ajuste de altura para considerar el Navbar y evitar scroll en la página principal -->
-    <div class="flex h-[calc(100vh-85px)] bg-slate-50 overflow-hidden">
+    <div class="flex h-[calc(100vh-85px)] bg-[#3498db] overflow-hidden">
       <!-- Left Panel: Product Selection -->
       <div class="flex-1 flex flex-col h-full overflow-hidden relative">
         <!-- Header / Categories -->
-        <div class="px-5 py-3 bg-white shadow-sm z-10 shrink-0">
+        <div class="px-5 py-3 bg-[#2c3e50] shadow-sm z-10 shrink-0 border-b border-red-200/60">
           <div class="flex items-center justify-between mb-4">
             <div class="flex items-center gap-4">
               <button
@@ -57,17 +57,17 @@ interface CartItem {
                   />
                 </svg>
               </button>
-              <h1 class="text-2xl font-black text-slate-900">
+              <h1 class="text-2xl font-black text-red-50">
                 {{
                   isEditing() ? "Editar Venta #" + editVentaId() : "Nueva Venta"
                 }}
               </h1>
             </div>
             <div
-              class="text-sm font-medium text-slate-500 bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-100"
+              class="text-sm font-medium text-red-100 bg-[#3498db] px-3 py-1.5 rounded-lg border border-red-200/60"
             >
               Sucursal:
-              <span class="text-slate-900 font-bold">{{
+              <span class="text-red-50 font-bold">{{
                 nombreSucursal()
               }}</span>
             </div>
@@ -78,9 +78,9 @@ interface CartItem {
             <button
               (click)="selectCategory(null)"
               [ngClass]="{
-                'bg-[#3498db] text-white ring-2 ring-[#3498db]/30':
+                'bg-[#3498db] text-red-50 ring-2 ring-[#3498db]/30':
                   selectedCategory() === null,
-                'bg-white text-slate-600': selectedCategory() !== null,
+                'bg-red-50 text-slate-600': selectedCategory() !== null,
               }"
               class="px-5 py-2 rounded-xl font-bold text-sm border border-slate-200 hover:bg-slate-50 transition-all duration-200"
             >
@@ -90,9 +90,9 @@ interface CartItem {
               *ngFor="let cat of categorias()"
               (click)="selectCategory(cat.id_categoria_menu)"
               [ngClass]="{
-                'bg-[#3498db] text-white ring-2 ring-[#3498db]/30':
+                'bg-[#3498db] text-red-50 ring-2 ring-[#3498db]/30':
                   selectedCategory() === cat.id_categoria_menu,
-                'bg-white text-slate-600':
+                'bg-red-50 text-slate-600':
                   selectedCategory() !== cat.id_categoria_menu,
               }"
               class="px-5 py-2 rounded-xl font-bold text-sm border border-slate-200 hover:bg-slate-50 transition-all duration-200"
@@ -103,12 +103,12 @@ interface CartItem {
         </div>
 
         <!-- Products Grid -->
-        <div class="flex-1 overflow-y-auto p-6 bg-slate-50/50 pb-24 lg:pb-6">
+        <div class="flex-1 overflow-y-auto p-6 bg-[#e74c3c]/15 pb-24 lg:pb-6">
           <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             <button
               *ngFor="let product of filteredProducts()"
               (click)="addToCart(product)"
-              class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:border-[#3498db]/50 transition-all duration-300 flex flex-col h-full relative group overflow-hidden"
+              class="bg-red-50 p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:border-[#3498db]/50 transition-all duration-300 flex flex-col h-full relative group overflow-hidden"
             >
               <!-- Product Image -->
               <div
@@ -162,11 +162,11 @@ interface CartItem {
         >
           <button
             (click)="showMobileCart.set(true)"
-            class="w-full bg-slate-900 text-white rounded-2xl p-4 shadow-xl shadow-slate-900/20 flex items-center justify-between"
+            class="w-full bg-slate-900 text-red-50 rounded-2xl p-4 shadow-xl shadow-slate-900/20 flex items-center justify-between"
           >
             <div class="flex items-center gap-3">
               <div
-                class="bg-white/20 px-3 py-1 rounded-lg text-sm font-bold backdrop-blur-sm"
+                class="bg-red-50/20 px-3 py-1 rounded-lg text-sm font-bold backdrop-blur-sm"
               >
                 {{ cart().length }} Items
               </div>
@@ -190,35 +190,35 @@ interface CartItem {
 
       <!-- Right Panel: Order Summary -->
       <div
-        class="bg-white border-l border-slate-200 shadow-2xl flex flex-col shrink-0 z-40
+        class="bg-[#7f1d1d] border-l border-red-700 shadow-2xl flex flex-col shrink-0 z-40
                fixed bottom-0 left-0 right-0 h-[85vh] rounded-t-[2.5rem] transition-transform duration-300 ease-out
                lg:static lg:w-[400px] lg:h-full lg:rounded-none lg:shadow-none lg:translate-y-0"
         [class.translate-y-0]="showMobileCart()"
         [class.translate-y-full]="!showMobileCart()"
       >
         <div
-          class="px-5 py-4 border-b border-slate-100 bg-white shrink-0 lg:rounded-none rounded-t-[2.5rem]"
+          class="px-5 py-4 border-b border-red-700 bg-[#991b1b] shrink-0 lg:rounded-none rounded-t-[2.5rem]"
         >
           <!-- Mobile Pull Indicator -->
           <div class="flex justify-center lg:hidden -mt-2 mb-3">
-            <div class="w-12 h-1.5 bg-slate-200 rounded-full"></div>
+            <div class="w-12 h-1.5 bg-red-300/60 rounded-full"></div>
           </div>
 
           <div class="flex items-center justify-between">
-            <h2 class="text-xl font-extrabold text-slate-900 tracking-tight">
+            <h2 class="text-xl font-extrabold text-red-50 tracking-tight">
               Pedido Actual
             </h2>
             <div class="flex items-center gap-2">
               <span
                 *ngIf="isEditing()"
-                class="px-2 py-0.5 bg-yellow-50 text-yellow-700 border border-yellow-200 text-xs font-bold rounded"
+                class="px-2 py-0.5 bg-red-700 text-red-100 border border-red-500 text-xs font-bold rounded"
               >
                 Editando #{{ editVentaId() }}
               </span>
               <!-- Mobile Close Button -->
               <button
                 (click)="showMobileCart.set(false)"
-                class="lg:hidden p-2 -mr-2 text-slate-400 hover:text-slate-600 bg-slate-50 rounded-full"
+                class="lg:hidden p-2 -mr-2 text-red-200 hover:text-red-50 bg-red-800/60 rounded-full"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -240,17 +240,17 @@ interface CartItem {
         </div>
 
         <!-- Cart Items -->
-        <div class="flex-1 overflow-y-auto p-3 space-y-2 bg-white">
+        <div class="flex-1 overflow-y-auto p-3 space-y-2 bg-[#8b1f1f]">
           <div
             *ngIf="cart().length === 0"
-            class="flex flex-col items-center justify-center h-full text-slate-400 opacity-60"
+            class="flex flex-col items-center justify-center h-full text-red-200 opacity-60"
           >
             <div
-              class="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mb-3"
+              class="w-16 h-16 bg-red-900/60 rounded-full flex items-center justify-center mb-3"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-8 w-8 text-slate-300"
+                class="h-8 w-8 text-red-300"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -268,11 +268,11 @@ interface CartItem {
 
           <div
             *ngFor="let item of cart(); let i = index"
-            class="flex gap-3 p-2.5 rounded-xl bg-white border border-slate-100 hover:border-slate-200 hover:shadow-sm transition-all group"
+            class="flex gap-3 p-2.5 rounded-xl bg-red-900/40 border border-red-700 hover:border-red-500 hover:shadow-sm transition-all group"
           >
             <!-- Product Image -->
             <div
-              class="w-14 h-14 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center overflow-hidden flex-shrink-0"
+              class="w-14 h-14 rounded-lg bg-red-800/60 border border-red-700 flex items-center justify-center overflow-hidden flex-shrink-0"
             >
               <ng-container *ngIf="item.url_foto; else cartPlaceholder">
                 <img
@@ -303,12 +303,12 @@ interface CartItem {
             <div class="flex-1 min-w-0 flex flex-col justify-between py-0.5">
               <div class="flex justify-between items-start gap-2">
                 <h4
-                  class="font-bold text-slate-800 text-sm leading-tight line-clamp-2"
+                  class="font-bold text-red-50 text-sm leading-tight line-clamp-2"
                 >
                   {{ item.nombre_menu }}
                 </h4>
                 <span
-                  class="font-black text-slate-900 text-sm whitespace-nowrap"
+                  class="font-black text-red-50 text-sm whitespace-nowrap"
                   >{{ item.subtotal.toFixed(2) }} Bs.</span
                 >
               </div>
@@ -316,20 +316,20 @@ interface CartItem {
               <div class="flex justify-between items-center mt-1">
                 <!-- Quantity Controls -->
                 <div
-                  class="flex items-center bg-slate-50 rounded-lg p-0.5 border border-slate-100"
+                  class="flex items-center bg-red-800/70 rounded-lg p-0.5 border border-red-700"
                 >
                   <button
                     (click)="decrementQuantity(i)"
-                    class="w-6 h-6 rounded-md hover:bg-slate-200 text-slate-600 flex items-center justify-center font-bold text-lg leading-none pb-0.5"
+                    class="w-6 h-6 rounded-md hover:bg-red-700 text-red-100 flex items-center justify-center font-bold text-lg leading-none pb-0.5"
                   >
                     −
                   </button>
-                  <div class="w-8 text-center text-xs font-bold text-slate-900">
+                  <div class="w-8 text-center text-xs font-bold text-red-50">
                     {{ item.cantidad }}
                   </div>
                   <button
                     (click)="incrementQuantity(i)"
-                    class="w-6 h-6 rounded-md hover:bg-[#3498db] hover:text-white text-slate-600 flex items-center justify-center font-bold text-lg leading-none pb-0.5 transition-colors"
+                    class="w-6 h-6 rounded-md hover:bg-[#e74c3c] hover:text-red-50 text-red-100 flex items-center justify-center font-bold text-lg leading-none pb-0.5 transition-colors"
                   >
                     +
                   </button>
@@ -337,7 +337,7 @@ interface CartItem {
 
                 <button
                   (click)="removeItem(i)"
-                  class="p-1.5 text-slate-300 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all"
+                  class="p-1.5 text-red-300 hover:text-red-50 hover:bg-red-700/60 rounded-lg transition-all"
                   title="Eliminar del pedido"
                 >
                   <svg
@@ -360,11 +360,11 @@ interface CartItem {
 
         <!-- Footer -->
         <div
-          class="bg-gray-50 border-t border-slate-200 p-4 shrink-0 z-20 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]"
+          class="bg-[#991b1b] border-t border-red-700 p-4 shrink-0 z-20 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]"
         >
           <div class="flex justify-between items-center mb-3">
-            <span class="text-slate-500 font-bold text-sm">Subtotal</span>
-            <span class="text-xl font-black text-slate-700"
+            <span class="text-red-200 font-bold text-sm">Subtotal</span>
+            <span class="text-xl font-black text-red-50"
               >{{ cartTotal().toFixed(2) }} Bs.</span
             >
           </div>
@@ -372,15 +372,15 @@ interface CartItem {
           <button
             (click)="openPagoModal()"
             [disabled]="cart().length === 0"
-            class="w-full bg-white border border-slate-200 py-2.5 px-4 rounded-xl mb-3 font-bold text-slate-700 text-sm flex items-center justify-between hover:bg-slate-50 hover:border-slate-300 transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
+            class="w-full bg-red-900/40 border border-red-700 py-2.5 px-4 rounded-xl mb-3 font-bold text-red-100 text-sm flex items-center justify-between hover:bg-red-800/60 hover:border-red-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
           >
             <span class="flex items-center gap-2">
               <span
-                class="p-1 bg-slate-100 rounded-lg group-hover:bg-slate-200 transition-colors"
+                class="p-1 bg-red-800 rounded-lg group-hover:bg-red-700 transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 text-slate-600"
+                  class="h-4 w-4 text-red-100"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -396,7 +396,7 @@ interface CartItem {
               Pagar por QR
             </span>
             <span
-              class="text-xs font-bold px-2 py-1 rounded bg-slate-100 text-slate-600"
+              class="text-xs font-bold px-2 py-1 rounded bg-red-800 text-red-100"
             >
               {{ pagoDefinido() ? "Definido" : "Efectivo" }}
             </span>
@@ -408,8 +408,8 @@ interface CartItem {
               *ngIf="montoEfectivo() > 0"
               class="flex justify-between items-center text-xs"
             >
-              <span class="font-bold text-slate-500">Efectivo</span>
-              <span class="font-bold text-green-600"
+              <span class="font-bold text-red-200">Efectivo</span>
+              <span class="font-bold text-red-100"
                 >{{ montoEfectivo().toFixed(2) }} Bs.</span
               >
             </div>
@@ -417,8 +417,8 @@ interface CartItem {
               *ngIf="montoQR() > 0"
               class="flex justify-between items-center text-xs"
             >
-              <span class="font-bold text-slate-500">QR / Transferencia</span>
-              <span class="font-bold text-blue-600"
+              <span class="font-bold text-red-200">QR / Transferencia</span>
+              <span class="font-bold text-red-100"
                 >{{ montoQR().toFixed(2) }} Bs.</span
               >
             </div>
@@ -427,7 +427,7 @@ interface CartItem {
           <button
             (click)="confirmVenta()"
             [disabled]="cart().length === 0 || isSubmitting()"
-            class="w-full bg-[#3498db] text-white font-black py-3.5 rounded-xl shadow-lg shadow-pink-200 hover:bg-[#2ecc71] hover:shadow-pink-300 hover:-translate-y-0.5 transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-between px-6"
+            class="w-full bg-[#e74c3c] text-red-50 font-black py-3.5 rounded-xl shadow-lg shadow-pink-200 hover:bg-[#c0392b] hover:shadow-pink-300 hover:-translate-y-0.5 transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-between px-6"
           >
             <span class="text-lg">{{
               isSubmitting() ? "Procesando..." : "Cobrar"
@@ -437,7 +437,7 @@ interface CartItem {
             >
             <span
               *ngIf="isSubmitting()"
-              class="h-6 w-6 border-2 border-white border-t-transparent rounded-full animate-spin"
+              class="h-6 w-6 border-2 border-red-100 border-t-transparent rounded-full animate-spin"
             ></span>
           </button>
         </div>
@@ -449,12 +449,12 @@ interface CartItem {
         class="fixed bottom-6 right-6 z-[100] transform transition-all duration-300 ease-in-out animate-in slide-in-from-bottom-5 fade-in"
       >
         <div
-          [class.bg-green-500]="notification().type === 'success'"
+          [class.bg-red-600]="notification().type === 'success'"
           [class.bg-red-500]="notification().type === 'error'"
-          class="flex items-center gap-3 px-6 py-4 rounded-2xl shadow-2xl shadow-gray-200 text-white min-w-[320px]"
+          class="flex items-center gap-3 px-6 py-4 rounded-2xl shadow-2xl shadow-gray-200 text-red-50 min-w-[320px]"
         >
           <!-- Icon -->
-          <div class="bg-white/20 p-2 rounded-xl">
+          <div class="bg-red-50/20 p-2 rounded-xl">
             <svg
               *ngIf="notification().type === 'success'"
               xmlns="http://www.w3.org/2000/svg"
@@ -491,7 +491,7 @@ interface CartItem {
             <h4 class="font-bold text-lg">
               {{ notification().type === "success" ? "¡Éxito!" : "Error" }}
             </h4>
-            <p class="text-sm text-white/90 font-medium">
+            <p class="text-sm text-red-100 font-medium">
               {{ notification().message }}
             </p>
           </div>
@@ -500,7 +500,7 @@ interface CartItem {
             (click)="
               notification.set({ show: false, message: '', type: 'success' })
             "
-            class="ml-auto text-white/60 hover:text-white transition-colors"
+            class="ml-auto text-red-200 hover:text-red-50 transition-colors"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -527,7 +527,7 @@ interface CartItem {
     >
       <div
         (click)="$event.stopPropagation()"
-        class="bg-white rounded-2xl w-full max-w-md shadow-2xl p-6"
+        class="bg-red-50 rounded-2xl w-full max-w-md shadow-2xl p-6"
       >
         <div class="flex items-center justify-between mb-6">
           <h3 class="text-2xl font-black text-slate-900">Método de Pago</h3>
@@ -622,7 +622,7 @@ interface CartItem {
             <button
               (click)="confirmarPago()"
               [disabled]="!isValidPago()"
-              class="flex-1 px-6 py-3 rounded-xl bg-[#3498db] text-white font-bold hover:bg-[#2ecc71] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              class="flex-1 px-6 py-3 rounded-xl bg-[#3498db] text-red-50 font-bold hover:bg-[#e74c3c] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Confirmar
             </button>
