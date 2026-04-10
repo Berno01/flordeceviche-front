@@ -1,0 +1,5 @@
+*.log
+.env
+dist/
+.angular/
+node_modules/
