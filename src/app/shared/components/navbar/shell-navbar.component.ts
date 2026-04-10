@@ -21,7 +21,7 @@ import { Subscription } from "rxjs";
           <span
             class="text-2xl font-black tracking-wide text-gray-900 uppercase font-sans"
           >
-            SHELLFRUTY
+            FLOR DE CEVICHE
           </span>
         </div>
 

@@ -30,7 +30,7 @@ interface CartItem {
   imports: [CommonModule, FormsModule, RouterLink],
   template: `
     <!-- Ajuste de altura para considerar el Navbar y evitar scroll en la página principal -->
-    <div class="flex h-[calc(100vh-85px)] bg-[#f8f9fa] overflow-hidden">
+    <div class="flex h-[calc(100vh-85px)] bg-slate-50 overflow-hidden">
       <!-- Left Panel: Product Selection -->
       <div class="flex-1 flex flex-col h-full overflow-hidden relative">
         <!-- Header / Categories -->
@@ -78,7 +78,7 @@ interface CartItem {
             <button
               (click)="selectCategory(null)"
               [ngClass]="{
-                'bg-[#eaa6b6] text-black ring-2 ring-[#eaa6b6]/30':
+                'bg-[#3498db] text-white ring-2 ring-[#3498db]/30':
                   selectedCategory() === null,
                 'bg-white text-slate-600': selectedCategory() !== null,
               }"
@@ -90,7 +90,7 @@ interface CartItem {
               *ngFor="let cat of categorias()"
               (click)="selectCategory(cat.id_categoria_menu)"
               [ngClass]="{
-                'bg-[#eaa6b6] text-black ring-2 ring-[#eaa6b6]/30':
+                'bg-[#3498db] text-white ring-2 ring-[#3498db]/30':
                   selectedCategory() === cat.id_categoria_menu,
                 'bg-white text-slate-600':
                   selectedCategory() !== cat.id_categoria_menu,
@@ -108,7 +108,7 @@ interface CartItem {
             <button
               *ngFor="let product of filteredProducts()"
               (click)="addToCart(product)"
-              class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:border-[#eaa6b6]/50 transition-all duration-300 flex flex-col h-full relative group overflow-hidden"
+              class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:border-[#3498db]/50 transition-all duration-300 flex flex-col h-full relative group overflow-hidden"
             >
               <!-- Product Image -->
               <div
@@ -147,7 +147,7 @@ interface CartItem {
                 >
                   {{ product.nombre_menu }}
                 </h3>
-                <p class="text-xl font-black text-[#eaa6b6]">
+                <p class="text-xl font-black text-[#3498db]">
                   {{ product.precio_menu }} Bs.
                 </p>
               </div>
@@ -268,7 +268,7 @@ interface CartItem {
 
           <div
             *ngFor="let item of cart(); let i = index"
-            class="flex gap-3 p-2.5 rounded-xl bg-white border border-slate-100 hover:border-pink-100 hover:shadow-sm transition-all group"
+            class="flex gap-3 p-2.5 rounded-xl bg-white border border-slate-100 hover:border-slate-200 hover:shadow-sm transition-all group"
           >
             <!-- Product Image -->
             <div
@@ -329,7 +329,7 @@ interface CartItem {
                   </div>
                   <button
                     (click)="incrementQuantity(i)"
-                    class="w-6 h-6 rounded-md hover:bg-[#eaa6b6] hover:text-black text-slate-600 flex items-center justify-center font-bold text-lg leading-none pb-0.5 transition-colors"
+                    class="w-6 h-6 rounded-md hover:bg-[#3498db] hover:text-white text-slate-600 flex items-center justify-center font-bold text-lg leading-none pb-0.5 transition-colors"
                   >
                     +
                   </button>
@@ -427,7 +427,7 @@ interface CartItem {
           <button
             (click)="confirmVenta()"
             [disabled]="cart().length === 0 || isSubmitting()"
-            class="w-full bg-[#eaa6b6] text-black font-black py-3.5 rounded-xl shadow-lg shadow-pink-200 hover:bg-[#d68a9a] hover:shadow-pink-300 hover:-translate-y-0.5 transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-between px-6"
+            class="w-full bg-[#3498db] text-white font-black py-3.5 rounded-xl shadow-lg shadow-pink-200 hover:bg-[#2ecc71] hover:shadow-pink-300 hover:-translate-y-0.5 transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-between px-6"
           >
             <span class="text-lg">{{
               isSubmitting() ? "Procesando..." : "Cobrar"
@@ -437,7 +437,7 @@ interface CartItem {
             >
             <span
               *ngIf="isSubmitting()"
-              class="h-6 w-6 border-2 border-black border-t-transparent rounded-full animate-spin"
+              class="h-6 w-6 border-2 border-white border-t-transparent rounded-full animate-spin"
             ></span>
           </button>
         </div>
@@ -577,7 +577,7 @@ interface CartItem {
                 [max]="cartTotal()"
                 min="0"
                 step="0.01"
-                class="w-full px-4 py-3 border-2 border-slate-300 rounded-xl font-bold text-lg focus:border-[#eaa6b6] focus:ring-2 focus:ring-[#eaa6b6]/20 outline-none transition-all"
+                class="w-full px-4 py-3 border-2 border-slate-300 rounded-xl font-bold text-lg focus:border-[#3498db] focus:ring-2 focus:ring-[#3498db]/20 outline-none transition-all"
                 placeholder="0.00"
               />
               <span
@@ -600,12 +600,12 @@ interface CartItem {
           </div>
 
           <!-- Monto Efectivo (calculado) -->
-          <div class="bg-pink-50 rounded-xl p-4 border border-pink-200">
+          <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
             <div class="flex justify-between items-center">
               <span class="text-sm font-bold text-slate-700"
                 >Monto en Efectivo</span
               >
-              <span class="text-2xl font-black text-[#eaa6b6]"
+              <span class="text-2xl font-black text-[#3498db]"
                 >{{ montoEfectivo().toFixed(2) }} Bs.</span
               >
             </div>
@@ -622,7 +622,7 @@ interface CartItem {
             <button
               (click)="confirmarPago()"
               [disabled]="!isValidPago()"
-              class="flex-1 px-6 py-3 rounded-xl bg-[#eaa6b6] text-black font-bold hover:bg-[#d68a9a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              class="flex-1 px-6 py-3 rounded-xl bg-[#3498db] text-white font-bold hover:bg-[#2ecc71] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Confirmar
             </button>

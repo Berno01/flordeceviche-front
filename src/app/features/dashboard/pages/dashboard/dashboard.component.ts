@@ -209,7 +209,7 @@ export class DashboardComponent {
   ) {
     const total = ingredientes.reduce((sum, item) => sum + item.cantidad, 0);
     let cumulativePercent = 0;
-    const colors = ["#eaa6b6", "#fbcfe8", "#cbd5e1", "#94a3b8", "#64748b"];
+    const colors = ["#3498db", "#2ecc71", "#e74c3c", "#d2b48c", "#2c3e50"];
 
     return ingredientes.map((item, index) => {
       const percent = total === 0 ? 0 : item.cantidad / total;

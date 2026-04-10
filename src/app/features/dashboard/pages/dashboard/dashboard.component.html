@@ -16,7 +16,7 @@
       <!-- Sucursal Filter -->
       <select
         [(ngModel)]="selectedSucursalId"
-        class="bg-slate-50 border-0 text-slate-700 text-sm rounded-xl focus:ring-2 focus:ring-[#eaa6b6] block p-2.5 font-bold min-w-[200px]"
+        class="bg-slate-50 border-0 text-slate-700 text-sm rounded-xl focus:ring-2 focus:ring-[#3498db] block p-2.5 font-bold min-w-[200px]"
       >
         <option [ngValue]="undefined">Todas las Sucursales</option>
         <option *ngFor="let suc of sucursales()" [value]="suc.id_sucursal">
@@ -31,7 +31,7 @@
         <input
           type="date"
           [(ngModel)]="startDate"
-          class="bg-slate-50 border-0 text-slate-700 text-sm rounded-xl focus:ring-2 focus:ring-[#eaa6b6] block p-2.5 font-bold"
+          class="bg-slate-50 border-0 text-slate-700 text-sm rounded-xl focus:ring-2 focus:ring-[#3498db] block p-2.5 font-bold"
         />
 
         <span *ngIf="dateMode() === 'range'" class="text-slate-400 font-bold"
@@ -42,7 +42,7 @@
           *ngIf="dateMode() === 'range'"
           type="date"
           [(ngModel)]="endDate"
-          class="bg-slate-50 border-0 text-slate-700 text-sm rounded-xl focus:ring-2 focus:ring-[#eaa6b6] block p-2.5 font-bold"
+          class="bg-slate-50 border-0 text-slate-700 text-sm rounded-xl focus:ring-2 focus:ring-[#3498db] block p-2.5 font-bold"
         />
 
         <button
@@ -68,7 +68,7 @@
           <svg
             *ngIf="dateMode() === 'range'"
             xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5 text-[#eaa6b6]"
+            class="h-5 w-5 text-[#3498db]"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -91,7 +91,7 @@
     class="h-96 flex flex-col items-center justify-center text-slate-400 gap-4"
   >
     <div
-      class="w-12 h-12 border-4 border-[#eaa6b6]/30 border-t-[#eaa6b6] rounded-full animate-spin"
+      class="w-12 h-12 border-4 border-[#3498db]/30 border-t-[#3498db] rounded-full animate-spin"
     ></div>
     <span class="font-medium animate-pulse">Cargando métricas...</span>
   </div>
@@ -145,7 +145,7 @@
           </h3>
         </div>
         <div
-          class="absolute right-4 top-4 p-3 bg-pink-50 rounded-2xl text-[#eaa6b6] group-hover:scale-110 transition-transform"
+          class="absolute right-4 top-4 p-3 bg-pink-50 rounded-2xl text-[#3498db] group-hover:scale-110 transition-transform"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -254,7 +254,7 @@
             >
               <!-- Bar Fill -->
               <div
-                class="w-full bg-[#eaa6b6] rounded-t-2xl transition-all duration-1000 ease-out group-hover:bg-[#e293a5]"
+                class="w-full bg-[#3498db] rounded-t-2xl transition-all duration-1000 ease-out group-hover:bg-[#2ecc71]"
                 [style.height.%]="
                   (parseInt(menu.cantidad) / maxMenuSold()) * 100
                 "
@@ -293,7 +293,7 @@
                   cy="20"
                   r="15.9155"
                   fill="none"
-                  stroke="#f1f5f9"
+                  stroke="#ffffff"
                   stroke-width="6"
                 />
 
@@ -359,7 +359,7 @@
             </p>
           </div>
 
-          <button class="p-2 text-slate-400 hover:text-[#eaa6b6]">
+          <button class="p-2 text-slate-400 hover:text-[#3498db]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-6 w-6"
@@ -392,7 +392,7 @@
               y1="0"
               x2="1000"
               y2="0"
-              stroke="#f1f5f9"
+              stroke="#ffffff"
               stroke-dasharray="4 4"
             />
             <line
@@ -400,7 +400,7 @@
               y1="75"
               x2="1000"
               y2="75"
-              stroke="#f1f5f9"
+              stroke="#ffffff"
               stroke-dasharray="4 4"
             />
             <line
@@ -408,7 +408,7 @@
               y1="150"
               x2="1000"
               y2="150"
-              stroke="#f1f5f9"
+              stroke="#ffffff"
               stroke-dasharray="4 4"
             />
             <line
@@ -416,15 +416,15 @@
               y1="225"
               x2="1000"
               y2="225"
-              stroke="#f1f5f9"
+              stroke="#ffffff"
               stroke-dasharray="4 4"
             />
 
             <!-- Gradient Definition -->
             <defs>
               <linearGradient id="gradientArea" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="0%" stop-color="#eaa6b6" stop-opacity="0.4" />
-                <stop offset="100%" stop-color="#eaa6b6" stop-opacity="0.0" />
+                <stop offset="0%" stop-color="#3498db" stop-opacity="0.4" />
+                <stop offset="100%" stop-color="#3498db" stop-opacity="0.0" />
               </linearGradient>
             </defs>
 
@@ -435,7 +435,7 @@
             <path
               [attr.d]="hoursChartPath().line"
               fill="none"
-              stroke="#eaa6b6"
+              stroke="#3498db"
               stroke-width="4"
               stroke-linecap="round"
               vector-effect="non-scaling-stroke"
@@ -484,7 +484,7 @@
                   cy="20"
                   r="15.9155"
                   fill="none"
-                  stroke="#f1f5f9"
+                  stroke="#ffffff"
                   stroke-width="6"
                 />
 

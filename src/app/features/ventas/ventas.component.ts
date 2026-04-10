@@ -40,7 +40,7 @@ import {
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink],
   template: `
-    <div class="min-h-screen bg-[#fdf7f8] pb-12">
+    <div class="min-h-screen bg-slate-50 pb-12">
       <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <!-- Header Section -->
         <div
@@ -82,7 +82,7 @@ import {
                 [(ngModel)]="selectedSucursal"
                 (change)="onFilterChange()"
                 [disabled]="!isAdmin()"
-                class="form-select w-full pl-10 pr-8 py-3 bg-white border border-slate-300 rounded-lg text-sm font-semibold focus:border-[#eaa6b6] focus:ring-[#eaa6b6] shadow-sm text-black cursor-pointer disabled:bg-gray-100 disabled:cursor-not-allowed"
+                class="form-select w-full pl-10 pr-8 py-3 bg-white border border-slate-300 rounded-lg text-sm font-semibold focus:border-[#3498db] focus:ring-[#3498db] shadow-sm text-black cursor-pointer disabled:bg-gray-100 disabled:cursor-not-allowed"
               >
                 <option [ngValue]="null">Todas las Sucursales</option>
                 <option
@@ -119,7 +119,7 @@ import {
                 [(ngModel)]="fechaInicio"
                 (change)="onFilterChange()"
                 [placeholder]="isRangeMode() ? 'Fecha Inicio' : 'Fecha'"
-                class="form-input w-full pl-10 pr-3 py-3 bg-white border border-slate-300 rounded-lg text-sm font-semibold focus:border-[#eaa6b6] focus:ring-[#eaa6b6] shadow-sm text-black cursor-pointer"
+                class="form-input w-full pl-10 pr-3 py-3 bg-white border border-slate-300 rounded-lg text-sm font-semibold focus:border-[#3498db] focus:ring-[#3498db] shadow-sm text-black cursor-pointer"
               />
             </div>
 
@@ -151,16 +151,16 @@ import {
                 [(ngModel)]="fechaFin"
                 (change)="onFilterChange()"
                 placeholder="Fecha Fin"
-                class="form-input w-full pl-10 pr-3 py-3 bg-white border border-slate-300 rounded-lg text-sm font-semibold focus:border-[#eaa6b6] focus:ring-[#eaa6b6] shadow-sm text-black cursor-pointer"
+                class="form-input w-full pl-10 pr-3 py-3 bg-white border border-slate-300 rounded-lg text-sm font-semibold focus:border-[#3498db] focus:ring-[#3498db] shadow-sm text-black cursor-pointer"
               />
             </div>
 
             <!-- Toggle Range Button -->
             <button
               (click)="toggleRangeMode()"
-              [class.bg-[#eaa6b6]]="isRangeMode()"
+              [class.bg-[#3498db]]="isRangeMode()"
               [class.bg-slate-200]="!isRangeMode()"
-              [class.text-black]="isRangeMode()"
+              [class.text-white]="isRangeMode()"
               [class.text-slate-700]="!isRangeMode()"
               class="hover:opacity-80 font-bold py-3 px-4 rounded-lg shadow-sm flex items-center justify-center gap-2 transition-all transform active:scale-95 text-sm"
               [title]="
@@ -188,7 +188,7 @@ import {
             <button
               (click)="openAbastecimientoModal()"
               [disabled]="currentSucursalId() === 0"
-              class="bg-white border border-slate-300 hover:border-[#eaa6b6] hover:bg-pink-50 text-slate-700 font-bold py-3 px-4 rounded-lg shadow-sm flex items-center justify-center gap-2 transition-all active:scale-95 text-sm disabled:opacity-40 disabled:cursor-not-allowed"
+              class="bg-white border border-slate-300 hover:border-[#3498db] hover:bg-slate-50 text-slate-700 font-bold py-3 px-4 rounded-lg shadow-sm flex items-center justify-center gap-2 transition-all active:scale-95 text-sm disabled:opacity-40 disabled:cursor-not-allowed"
               [title]="
                 currentSucursalId() === 0
                   ? 'Selecciona una sucursal primero'
@@ -197,7 +197,7 @@ import {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-[#eaa6b6]"
+                class="h-5 w-5 text-[#3498db]"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -250,14 +250,14 @@ import {
                   stroke="none"
                 />
               </svg>
-              Vasos
+              Pedidos
             </button>
 
             <!-- Saldo de Ventas Button -->
             <button
               (click)="openSaldoModal()"
               [disabled]="currentSucursalId() === 0"
-              class="bg-white border border-slate-300 hover:border-[#eaa6b6] hover:bg-pink-50 text-slate-700 font-bold py-3 px-4 rounded-lg shadow-sm flex items-center justify-center gap-2 transition-all active:scale-95 text-sm disabled:opacity-40 disabled:cursor-not-allowed"
+              class="bg-white border border-slate-300 hover:border-[#3498db] hover:bg-slate-50 text-slate-700 font-bold py-3 px-4 rounded-lg shadow-sm flex items-center justify-center gap-2 transition-all active:scale-95 text-sm disabled:opacity-40 disabled:cursor-not-allowed"
               [title]="
                 currentSucursalId() === 0
                   ? 'Selecciona una sucursal primero'
@@ -266,7 +266,7 @@ import {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-[#eaa6b6]"
+                class="h-5 w-5 text-[#3498db]"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -284,7 +284,7 @@ import {
             <!-- Nueva Venta Button -->
             <button
               routerLink="/ventas/nueva"
-              class="bg-[#eaa6b6] hover:bg-[#d68a9a] text-black font-extrabold py-3 px-6 rounded-lg shadow-md shadow-pink-200 flex items-center justify-center gap-2 transition-all transform active:scale-95 flex-1 md:flex-none text-sm"
+              class="bg-[#3498db] hover:bg-[#2ecc71] text-white font-extrabold py-3 px-6 rounded-lg shadow-md shadow-pink-200 flex items-center justify-center gap-2 transition-all transform active:scale-95 flex-1 md:flex-none text-sm"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -378,7 +378,7 @@ import {
                 <ng-container *ngIf="!isLoading()">
                   <tr
                     *ngFor="let venta of ventas()"
-                    class="hover:bg-pink-50/50 transition-colors group"
+                    class="hover:bg-slate-50/50 transition-colors group"
                     [class.opacity-60]="venta.estado === 'CANCELADA'"
                     [class.bg-amber-50]="
                       venta.is_updated && venta.estado !== 'CANCELADA'
@@ -626,7 +626,7 @@ import {
           </div>
 
           <!-- Footer Summary -->
-          <div class="bg-[#eaa6b6]/20 border-t border-[#eaa6b6]/30">
+          <div class="bg-[#3498db]/20 border-t border-[#3498db]/30">
             <table class="w-full">
               <tbody>
                 <tr>
@@ -668,7 +668,7 @@ import {
                   <td class="py-5 px-6 text-right w-32">
                     <div class="flex flex-col items-end relative">
                       <div
-                        class="absolute -bottom-2 right-0 w-32 h-1.5 bg-[#eaa6b6] rounded-full opacity-60"
+                        class="absolute -bottom-2 right-0 w-32 h-1.5 bg-[#3498db] rounded-full opacity-60"
                       ></div>
                       <span
                         class="text-xs uppercase tracking-wide text-black font-black mb-1"
@@ -713,7 +713,7 @@ import {
           >
             <div
               *ngFor="let venta of ventas()"
-              class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:border-pink-200 transition-all duration-300 p-5 flex flex-col justify-between group relative overflow-hidden"
+              class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:border-slate-300 transition-all duration-300 p-5 flex flex-col justify-between group relative overflow-hidden"
               [class.opacity-75]="venta.estado === 'CANCELADA'"
               [class.bg-slate-50]="venta.estado === 'CANCELADA'"
               [class.border-amber-300]="
@@ -728,7 +728,7 @@ import {
               <!-- Card Top: Date & Status -->
               <div class="flex justify-between items-start mb-4">
                 <div class="flex flex-col">
-                  <span class="text-xs font-black text-[#eaa6b6] mb-1"
+                  <span class="text-xs font-black text-[#3498db] mb-1"
                     >#{{ venta.id_venta }}</span
                   >
                   <span
@@ -741,7 +741,7 @@ import {
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 w-4 text-pink-400"
+                      class="h-4 w-4 text-[#3498db]"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -802,7 +802,7 @@ import {
 
                 <!-- Price Box -->
                 <div
-                  class="mt-4 bg-slate-50 rounded-xl p-3 border border-slate-100 group-hover:bg-pink-50/30 group-hover:border-pink-100 transition-colors"
+                  class="mt-4 bg-slate-50 rounded-xl p-3 border border-slate-100 group-hover:bg-slate-50 group-hover:border-slate-200 transition-colors"
                 >
                   <div class="flex justify-between items-end mb-1">
                     <span class="text-[10px] font-bold text-slate-400 uppercase"
@@ -858,7 +858,7 @@ import {
               >
                 <button
                   (click)="verDetalle(venta)"
-                  class="text-xs font-bold text-slate-500 hover:text-pink-500 flex items-center gap-1 transition-colors px-2 py-1.5 rounded-lg hover:bg-pink-50"
+                  class="text-xs font-bold text-slate-500 hover:text-[#3498db] flex items-center gap-1 transition-colors px-2 py-1.5 rounded-lg hover:bg-slate-50"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -985,11 +985,11 @@ import {
               class="col-span-full py-16 text-center bg-white rounded-3xl border border-slate-200 border-dashed"
             >
               <div
-                class="inline-flex items-center justify-center w-20 h-20 bg-pink-50 rounded-full mb-4"
+                class="inline-flex items-center justify-center w-20 h-20 bg-slate-50 rounded-full mb-4"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-10 w-10 text-pink-300"
+                  class="h-10 w-10 text-slate-300"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -1079,7 +1079,7 @@ import {
                     class="absolute -right-4 -top-4 w-12 h-12 bg-white/20 rounded-full group-hover:scale-150 transition-transform duration-500"
                   ></div>
                   <p
-                    class="text-[10px] text-pink-100 font-bold uppercase mb-1 relative z-10"
+                    class="text-[10px] text-white/80 font-bold uppercase mb-1 relative z-10"
                   >
                     Venta Total
                   </p>
@@ -1152,7 +1152,7 @@ import {
               class="flex justify-center py-6"
             >
               <div
-                class="h-8 w-8 border-4 border-pink-200 border-t-[#eaa6b6] rounded-full animate-spin"
+                class="h-8 w-8 border-4 border-pink-200 border-t-[#3498db] rounded-full animate-spin"
               ></div>
             </div>
             <p
@@ -1183,7 +1183,7 @@ import {
                     *ngFor="let d of ab.detalles"
                     class="inline-flex items-center gap-1.5 bg-white border border-slate-200 rounded-lg px-2.5 py-1 text-xs font-bold text-slate-700"
                   >
-                    <span class="text-[#eaa6b6]">&times;{{ d.cantidad }}</span>
+                    <span class="text-[#3498db]">&times;{{ d.cantidad }}</span>
                     {{ d.nombre_menu }}
                   </span>
                 </div>
@@ -1214,10 +1214,10 @@ import {
                 [class.bg-slate-50]="
                   (vasosQuantities()[item.id_menu] || 0) === 0
                 "
-                [class.border-[#eaa6b6]]="
+                [class.border-[#3498db]]="
                   (vasosQuantities()[item.id_menu] || 0) > 0
                 "
-                [class.bg-pink-50]="(vasosQuantities()[item.id_menu] || 0) > 0"
+                [class.bg-slate-50]="(vasosQuantities()[item.id_menu] || 0) > 0"
               >
                 <!-- Imagen -->
                 <div
@@ -1274,7 +1274,7 @@ import {
                   />
                   <button
                     (click)="incrementAbQty(item.id_menu)"
-                    class="px-2.5 py-1.5 text-slate-500 hover:bg-[#eaa6b6] hover:text-black font-bold text-base leading-none transition-colors"
+                    class="px-2.5 py-1.5 text-slate-500 hover:bg-[#3498db] hover:text-white font-bold text-base leading-none transition-colors"
                   >
                     +
                   </button>
@@ -1301,11 +1301,11 @@ import {
             <button
               (click)="saveAbastecimiento()"
               [disabled]="abTotalItems() === 0 || isSavingAbastecimiento()"
-              class="px-5 py-2.5 rounded-xl bg-[#eaa6b6] text-black font-black hover:bg-[#d68a9a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm flex items-center gap-2"
+              class="px-5 py-2.5 rounded-xl bg-[#3498db] text-white font-black hover:bg-[#2ecc71] transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm flex items-center gap-2"
             >
               <span
                 *ngIf="isSavingAbastecimiento()"
-                class="h-4 w-4 border-2 border-black border-t-transparent rounded-full animate-spin"
+                class="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin"
               ></span>
               {{
                 isSavingAbastecimiento() ? "Guardando..." : "Guardar Registro"
@@ -1362,7 +1362,7 @@ import {
           <!-- Loading -->
           <div *ngIf="isLoadingSaldo()" class="flex justify-center py-10">
             <div
-              class="h-8 w-8 border-4 border-pink-200 border-t-[#eaa6b6] rounded-full animate-spin"
+              class="h-8 w-8 border-4 border-pink-200 border-t-[#3498db] rounded-full animate-spin"
             ></div>
           </div>
 
@@ -1398,8 +1398,8 @@ import {
               *ngFor="let item of saldoItems()"
               class="grid grid-cols-3 gap-2 items-center bg-slate-50 rounded-xl px-3 py-2.5 border"
               [class.border-slate-100]="item.saldo > 0"
-              [class.border-pink-200]="item.saldo === 0"
-              [class.bg-pink-50]="item.saldo === 0"
+              [class.border-slate-200]="item.saldo === 0"
+              [class.bg-slate-50]="item.saldo === 0"
             >
               <span
                 class="text-sm font-bold text-slate-800 truncate"
@@ -1475,7 +1475,7 @@ import {
         >
           <div class="flex items-center gap-3">
             <h2 class="text-2xl font-extrabold text-black">Detalle de Venta</h2>
-            <span class="text-2xl font-bold text-[#eaa6b6]"
+            <span class="text-2xl font-bold text-[#3498db]"
               >#{{ detalleVenta()?.id_venta }}</span
             >
           </div>
@@ -1750,7 +1750,7 @@ import {
             class="flex items-center justify-center py-8"
           >
             <div
-              class="h-10 w-10 border-4 border-pink-200 border-t-[#eaa6b6] rounded-full animate-spin"
+              class="h-10 w-10 border-4 border-pink-200 border-t-[#3498db] rounded-full animate-spin"
             ></div>
           </div>
 
@@ -1888,10 +1888,10 @@ import {
       }
       @keyframes bot-highlight {
         from {
-          background-color: #dcfce7;
+          background-color: #ffffff;
         }
         to {
-          background-color: #bbf7d0;
+          background-color: #d2b48c33;
         }
       }
     `,
